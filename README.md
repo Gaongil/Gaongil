@@ -9,5 +9,5 @@
 
 |박준혁|석혜민|오세익|
 |:-:|:-:|:-:|
-|<img src="https://github.com/Genesis2010.png" width="250">|<img src="https://github.com/lenamin.png" width="300">|<img src="https://github.com/glitterer.png" width="290">|
+|<img src="https://github.com/Genesis2010.png" width="200">|<img src="https://github.com/lenamin.png" width="200">|<img src="https://github.com/glitterer.png" width="200">|
 |[@Genesis2010](https://github.com/Genesis2010)|[@lenamin](https://github.com/lenamin)|[@glitterer](https://github.com/glitterer)|
