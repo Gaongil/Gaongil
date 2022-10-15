@@ -13,6 +13,7 @@
 		BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AE40D28FA8CA800AF68ED /* ViewController.swift */; };
 		BF7AE41328FA8CA800AF68ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7AE41228FA8CA800AF68ED /* Assets.xcassets */; };
 		BF7AE41628FA8CA800AF68ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7AE41428FA8CA800AF68ED /* LaunchScreen.storyboard */; };
+		BFE25E7028FA9B370078A84D /* SelectCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE25E6F28FA9B370078A84D /* SelectCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BF7AE41228FA8CA800AF68ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7AE41528FA8CA800AF68ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF7AE41728FA8CA800AF68ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFE25E6F28FA9B370078A84D /* SelectCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7AE40D28FA8CA800AF68ED /* ViewController.swift */,
+				BFE25E6F28FA9B370078A84D /* SelectCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			files = (
 				BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */,
 				BF6D1A1728FA930000CEE971 /* Colors.swift in Sources */,
+				BFE25E7028FA9B370078A84D /* SelectCategoryViewController.swift in Sources */,
 				BF7AE40A28FA8CA800AF68ED /* AppDelegate.swift in Sources */,
 				BF7AE40C28FA8CA800AF68ED /* SceneDelegate.swift in Sources */,
 			);
