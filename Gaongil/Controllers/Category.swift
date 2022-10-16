@@ -27,6 +27,5 @@ extension Category {
         Category(name: "국방"),
         Category(name: "외교"),
         Category(name: "해양")
-        
     ]
 }
