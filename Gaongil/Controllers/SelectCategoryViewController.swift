@@ -54,6 +54,8 @@ class SelectCategoryViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(SelectCategoryCollectionViewCell.self, forCellWithReuseIdentifier: SelectCategoryCollectionViewCell.reuseIdentifier)
         collectionView.backgroundColor = .clear
+        collectionView.alwaysBounceVertical = true
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
@@ -83,7 +85,7 @@ class SelectCategoryViewController: UIViewController {
             
             selectCategoryCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             selectCategoryCollectionView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: screenHeight / 16.54),
-            selectCategoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            selectCategoryCollectionView.bottomAnchor.constraint(equalTo: floatingButton.topAnchor, constant: 0),
             selectCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
             selectCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
             
