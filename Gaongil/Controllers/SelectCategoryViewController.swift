@@ -31,12 +31,23 @@ class SelectCategoryViewController: UIViewController {
         return label
     }()
     
+    private var floatingButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("시작하기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .customSelectedGreen
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     //MARK: selectCategoryCollectionView
     
     private var selectCategoryCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
         layout.minimumInteritemSpacing = UIScreen.main.bounds.width / 19.5
         layout.minimumLineSpacing = UIScreen.main.bounds.width / 19.5
         
@@ -48,7 +59,6 @@ class SelectCategoryViewController: UIViewController {
         return collectionView
     }()
     
-    
     //MARK: viewDidLoad()
     
     override func viewDidLoad() {
@@ -59,13 +69,14 @@ class SelectCategoryViewController: UIViewController {
         
         selectCategoryCollectionView.dataSource = self
         selectCategoryCollectionView.delegate = self
+        view.addSubview(floatingButton)
         configureConstraints()
     }
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight * 0.13),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight / 10.64),
             
             subTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
@@ -74,10 +85,14 @@ class SelectCategoryViewController: UIViewController {
             selectCategoryCollectionView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: screenHeight / 16.54),
             selectCategoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             selectCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
-            selectCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57)
+            selectCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
+            
+            floatingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            floatingButton.widthAnchor.constraint(equalToConstant: screenWidth / 1.13),
+            floatingButton.heightAnchor.constraint(equalToConstant: screenHeight / 13.19),
+            floatingButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -screenHeight / 30.14)
         ])
     }
-            
 }
 
 extension SelectCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -91,7 +106,6 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
         cell.backgroundColor = .white
         cell.categoryLabel.text = categories[indexPath.row].name
         
-        
         return cell
     }
     
@@ -101,6 +115,4 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
         let collectionViewCellWidth = screenWidth - anchorSpacing - insetSpacing
         return CGSize(width: collectionViewCellWidth / 3, height: collectionViewCellWidth / 3)
     }
-    
-    
 }
