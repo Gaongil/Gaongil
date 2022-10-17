@@ -12,7 +12,7 @@ class SelectCategoryViewController: UIViewController {
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
     
-    let categories = Category.categoryNames
+    var categories = Category.categoryNames
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -55,6 +55,7 @@ class SelectCategoryViewController: UIViewController {
         collectionView.register(SelectCategoryCollectionViewCell.self, forCellWithReuseIdentifier: SelectCategoryCollectionViewCell.reuseIdentifier)
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = true
+        collectionView.allowsMultipleSelection = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -99,6 +100,7 @@ class SelectCategoryViewController: UIViewController {
 }
 
 extension SelectCategoryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
@@ -117,5 +119,29 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
         let insetSpacing = (screenWidth / 19.5) * 2
         let collectionViewCellWidth = screenWidth - anchorSpacing - insetSpacing
         return CGSize(width: collectionViewCellWidth / 3, height: collectionViewCellWidth / 3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? SelectCategoryCollectionViewCell {
+            
+            cell.categoryLabel.textColor = .customSelectedGreen
+            cell.backgroundColor = .customBackgroundGreen
+            
+            categories[indexPath.row].isCategorySelected = true
+            
+            print("categories[indexPath.row].isCategorySelected: \(categories[indexPath.row].isCategorySelected)")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? SelectCategoryCollectionViewCell {
+            
+            cell.categoryLabel.textColor = .customBlack
+            cell.backgroundColor = .white
+            
+            categories[indexPath.row].isCategorySelected = false
+            
+            print("categories[indexPath.row].isCategorySelected: \(categories[indexPath.row].isCategorySelected)")
+        }
     }
 }
