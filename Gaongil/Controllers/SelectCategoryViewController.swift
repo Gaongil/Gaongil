@@ -84,9 +84,10 @@ class SelectCategoryViewController: UIViewController {
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             
             selectCategoryCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            selectCategoryCollectionView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: screenHeight / 16.54),
+            selectCategoryCollectionView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: screenHeight / 30.54),
             selectCategoryCollectionView.bottomAnchor.constraint(equalTo: floatingButton.topAnchor, constant: 0),
             selectCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
+
             selectCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
             
             floatingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
