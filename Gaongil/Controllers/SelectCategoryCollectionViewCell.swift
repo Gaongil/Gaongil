@@ -13,7 +13,6 @@ class SelectCategoryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(categoryLabel)
-        contentView.backgroundColor = .white
 
         layer.cornerRadius = 8
         layer.masksToBounds = true
