@@ -10,6 +10,14 @@ import UIKit
 class SelectCategoryCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "SelectCategoryCollectionViewCell"
     
+    lazy var categoryLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textColor = .customBlack
+        label.font = .systemFont(ofSize: 24)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(categoryLabel)
@@ -26,14 +34,7 @@ class SelectCategoryCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         configureCellConstraints()
     }
-    
-    lazy var categoryLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textColor = .customBlack
-        label.font = .systemFont(ofSize: 24)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+
     
     private func configureCellConstraints() {
         NSLayoutConstraint.activate([
