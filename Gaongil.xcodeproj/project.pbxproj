@@ -56,6 +56,7 @@
 		BF6D1A1128FA92B600CEE971 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF36E2C128FE83C2007B9E15 /* CustomView.swift */,
 				BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -84,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				BF6D1A1628FA930000CEE971 /* Colors.swift */,
-				BF36E2C128FE83C2007B9E15 /* CustomView.swift */,
 				BF36E2C328FEA28A007B9E15 /* Shadow.swift */,
 				BF752F65290143B00083A72C /* Variables.swift */,
 			);
