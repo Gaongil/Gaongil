@@ -9,9 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHeight = UIScreen.main.bounds.height
-    
+    //MARK: Properties
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 30, weight: .bold)
@@ -26,8 +24,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.white
-        [titleLabel].forEach { view.addSubview($0)}
+        view.backgroundColor = .systemBackground
+        [titleLabel, settingsTableView].forEach { view.addSubview($0)}
         configureConstraints()
     }
     
