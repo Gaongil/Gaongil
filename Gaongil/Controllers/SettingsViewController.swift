@@ -39,16 +39,11 @@ class SettingsViewController: UIViewController {
     var models = [Sections]()
     
     //MARK: viewDidLoad()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         [titleLabel, settingsTableView].forEach { view.addSubview($0)}
-//        title = "설정"
-//        SettingstableView.frame = view.bounds
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationItem.largeTitleDisplayMode = .automatic
         
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
