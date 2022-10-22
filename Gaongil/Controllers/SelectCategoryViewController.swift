@@ -8,10 +8,7 @@
 import UIKit
 
 class SelectCategoryViewController: UIViewController {
-    
-    let screenWidth = UIScreen.main.bounds.width
-    let screenHeight = UIScreen.main.bounds.height
-    
+
     var categories = Category.categoryNames
     
     private var titleLabel: UILabel = {
