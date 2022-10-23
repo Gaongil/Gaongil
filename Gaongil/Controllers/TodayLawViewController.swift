@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayLawViewController : UIViewController {
+class TodayLawViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class TodayLawViewController : UIViewController {
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-
         ])
     }
 }

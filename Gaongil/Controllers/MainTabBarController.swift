@@ -21,26 +21,26 @@ class MainTabBarController: UITabBarController {
     
     func configureViewControllers() {
         let law = TodayLawViewController()
-        let nav1 = templateNavigationController(image: UIImage(systemName: "book.closed"), title: "오늘의 법안", rootViewController: law)
+        let lawNavigation = templateNavigationController(image: UIImage(systemName: "book.closed"), title: "오늘의 법안", rootViewController: law)
         
         let favorite = FavoriteViewController()
-        let nav2 = templateNavigationController(image: UIImage(systemName: "star"), title: "관심 법안", rootViewController: favorite)
+        let favoriteNavigation = templateNavigationController(image: UIImage(systemName: "star"), title: "관심 법안", rootViewController: favorite)
         
         let setting = SettingsViewController()
-        let nav3 = templateNavigationController(image: UIImage(systemName: "person.crop.circle"), title: "MY", rootViewController: setting)
+        let settingNavigation = templateNavigationController(image: UIImage(systemName: "person.crop.circle"), title: "MY", rootViewController: setting)
         
-        viewControllers = [nav1, nav2, nav3]
+        viewControllers = [lawNavigation, favoriteNavigation, settingNavigation]
         
     }
     
     func templateNavigationController(image: UIImage?, title: String, rootViewController: UIViewController) -> UINavigationController {
         
-        let nav = UINavigationController(rootViewController: rootViewController)
-        nav.tabBarItem.image = image
-        nav.tabBarItem.title = title
-        nav.navigationBar.prefersLargeTitles = true
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.tabBarItem.image = image
+        navigationController.tabBarItem.title = title
+        navigationController.navigationBar.prefersLargeTitles = true
         
-        return nav
+        return navigationController
         
     }
 }
