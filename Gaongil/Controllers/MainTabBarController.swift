@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
         let favorite = FavoriteViewController()
         let nav2 = templateNavigationController(image: UIImage(systemName: "star"), title: "관심 법안", rootViewController: favorite)
         
-        let setting = SettingViewController()
+        let setting = SettingsViewController()
         let nav3 = templateNavigationController(image: UIImage(systemName: "person.crop.circle"), title: "MY", rootViewController: setting)
         
         viewControllers = [nav1, nav2, nav3]
