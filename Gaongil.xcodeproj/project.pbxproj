@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBF92903087900E5342D /* TodayLawViewController.swift */; };
+		3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */; };
+		3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */; };
+		3FEECC0029030C7600E5342D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFF29030C7600E5342D /* SettingsViewController.swift */; };
 		BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */; };
 		BF0AC0A528FBDFFB009729A1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A428FBDFFB009729A1 /* Category.swift */; };
 		BF36E2BB28FE77DC007B9E15 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FEECBF92903087900E5342D /* TodayLawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawViewController.swift; sourceTree = "<group>"; };
+		3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		3FEECBFF29030C7600E5342D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectCategoryCollectionViewCell.swift; path = Gaongil/Views/SelectCategoryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		BF0AC0A428FBDFFB009729A1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Gaongil/Model/Category.swift; sourceTree = SOURCE_ROOT; };
 		BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +85,10 @@
 				BF7AE40D28FA8CA800AF68ED /* ViewController.swift */,
 				BFE25E6F28FA9B370078A84D /* SelectCategoryViewController.swift */,
 				BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */,
+				3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */,
+				3FEECBF92903087900E5342D /* TodayLawViewController.swift */,
+				3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */,
+				3FEECBFF29030C7600E5342D /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,13 +215,17 @@
 			files = (
 				BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */,
 				BF752F66290143B00083A72C /* Variables.swift in Sources */,
+				3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */,
+				3FEECC0029030C7600E5342D /* SettingsViewController.swift in Sources */,
 				BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */,
+				3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */,
 				BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */,
 				BF36E2C428FEA28A007B9E15 /* Shadow.swift in Sources */,
 				BF6D1A1728FA930000CEE971 /* Colors.swift in Sources */,
 				BF36E2C228FE83C2007B9E15 /* CustomView.swift in Sources */,
 				BFE25E7028FA9B370078A84D /* SelectCategoryViewController.swift in Sources */,
 				BF7AE40A28FA8CA800AF68ED /* AppDelegate.swift in Sources */,
+				3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */,
 				BF7AE40C28FA8CA800AF68ED /* SceneDelegate.swift in Sources */,
 				BF0AC0A528FBDFFB009729A1 /* Category.swift in Sources */,
 				BF36E2BB28FE77DC007B9E15 /* DetailViewController.swift in Sources */,
