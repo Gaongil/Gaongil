@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */; };
 		BF0AC0A528FBDFFB009729A1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A428FBDFFB009729A1 /* Category.swift */; };
+		BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */; };
 		BF36E2BB28FE77DC007B9E15 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */; };
 		BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2BF28FE8159007B9E15 /* LawInformation.swift */; };
 		BF36E2C228FE83C2007B9E15 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2C128FE83C2007B9E15 /* CustomView.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectCategoryCollectionViewCell.swift; path = Gaongil/Views/SelectCategoryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		BF0AC0A428FBDFFB009729A1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Gaongil/Model/Category.swift; sourceTree = SOURCE_ROOT; };
+		BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstanrs.swift; sourceTree = "<group>"; };
 		BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BF36E2BF28FE8159007B9E15 /* LawInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LawInformation.swift; path = Gaongil/Model/LawInformation.swift; sourceTree = SOURCE_ROOT; };
 		BF36E2C128FE83C2007B9E15 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				BF788B8A29054244002BF8C0 /* APIKey.swift */,
+				BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */,
 				BF752F66290143B00083A72C /* Variables.swift in Sources */,
+				BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */,
 				BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */,
 				BF788B9029055A8C002BF8C0 /* Law.swift in Sources */,
 				BF788B8B29054244002BF8C0 /* APIKey.swift in Sources */,
