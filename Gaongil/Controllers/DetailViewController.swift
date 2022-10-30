@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Alamofire
+
 class DetailViewController: UIViewController {
     
     var instituteView = CustomView()
@@ -14,11 +16,12 @@ class DetailViewController: UIViewController {
     var suggestionDateView = CustomView()
     var proposerView = CustomView()
     
+    var shared = ResponseManager.shared
+    
     private var lawTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .customBlack
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.text = "3차 병원에 대한 개정법률안"
+        label.font = .boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,11 +53,6 @@ class DetailViewController: UIViewController {
         suggestionDateView.updateSubTitleLabel("제안일")
         proposerView.updateSubTitleLabel("제안자")
         
-        instituteView.updateContentLabel("보건복지부")
-        progressView.updateContentLabel("접수")
-        suggestionDateView.updateContentLabel("2022-03-01")
-        proposerView.updateContentLabel("김땡땡")
-        
         for view in subviews {
             stackView.addArrangedSubview(view)
         }
@@ -74,8 +72,7 @@ class DetailViewController: UIViewController {
         textView.isScrollEnabled = true
         textView.textColor = .customBlack
         textView.font = .systemFont(ofSize: 19, weight: .regular)
-        textView.text = "여기에는 디테일한 법안 내용이 들어갑니다.여기에는 디테일한 법안 내용이 들어갑니다. 여기에는 디테일한 법안 내용이 들어갑니다. 여기에는 디테일한 법안 내용이 들어갑니다. \n여기에는 디테일한 법안 내용이 들어갑니다. \n여기에는 디테일한 법안 내용이 들어갑니다."
-
+        textView.text = ""
         textView.translatesAutoresizingMaskIntoConstraints = false
         
         return textView
@@ -93,8 +90,18 @@ class DetailViewController: UIViewController {
                            color: UIColor.black,
                            radius: 6,
                            opacity: 0.2)
+        
+        shared.fetchLawData() { [weak self] _ in
+            self?.lawTitleLabel.text = self?.shared.rows[0][0].billName ?? String()
+            self?.instituteView.contentLabel.text = self?.shared.rows[0][0].currCommittee ?? String()
+            self?.progressView.contentLabel.text = self?.shared.rows[0][0].procResultCd ?? String()
+            self?.proposerView.contentLabel.text = self?.shared.rows[0][0].proposer ?? String()
+            self?.suggestionDateView.contentLabel.text = self?.shared.rows[0][0].proposeDt ?? String()
+            self?.contentTextView.text = self?.shared.rows[0][1].linkUrl ?? String()
+        }
     }
     
+    /*
     func viewWillAppear() {
         super.viewWillAppear(true)
         
@@ -105,6 +112,7 @@ class DetailViewController: UIViewController {
         navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), menu: .none)
         navigationController?.navigationItem.backButtonTitle = ""
     }
+     */
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
