@@ -14,21 +14,20 @@ class ResponseManager {
     var rows: [[Row]] = []
     var lawResponse = [LawResponse]()
     
-    func fetchLawData(_ handler: @escaping (([[Row]]) -> Void)) {
+    static let shared = ResponseManager()
+    
+    private init() { }
+    
+    func fetchLawData(_ completionHandler: @escaping (([[Row]]) -> Void)) {
         
-        let customParameters: Parameters = [
-            "age": "21"
-        ]
-        
-        guard let url = URL(string: "https://open.assembly.go.kr/portal/openapi/nxjuyqnxadtotdrbw?AGE=21&KEY=\(myAPIKey)&Type=json") else { fatalError("Invalid URL")
-        }
+        let url = APIConstants.baseURL
         
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
             "Accept":"application/json"
         ]
         
-        AF.request(url, method: .post, parameters: customParameters, encoding: JSONEncoding.default, headers: header)
+        AF.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: header)
             .response { response in
                 switch response.result {
                     case .success(let data):
@@ -38,11 +37,25 @@ class ResponseManager {
                             guard let firstRow = try? decoder.decode(LawResponse.self, from: data) else {
                                 return
                             }
-                            guard let lists = firstRow.list else { return }
                             
+                            /// 전체 JSON 데이터
+                            guard let lists = firstRow.list else { return }
+                            print("나는 lists: \(lists)")
+                            
+                            /// row 데이터들만 모아놓은 프로퍼티
                             let rowBoxes = lists.compactMap { $0.row }
-//                            print(rowBoxes)
-//                            print(rowBoxes[0][0].billName)
+                            print("rowBoxes[0]: \(rowBoxes[0])")
+                            print("나는 billName: \(rowBoxes[0][0].billName)")
+                            print("나는 billName: \(rowBoxes[0][1].billName)")
+                            print("나는 billName: \(rowBoxes[0][1].currCommittee)")
+                            print("row들 개수 :\(rowBoxes[0].count)")
+                            
+                            rowBoxes.forEach { rows in
+                                self.rows.append(rows)
+                                
+                            }
+                            completionHandler(rowBoxes)
+                            
                         } catch {
                             print(error.localizedDescription)
                         }
@@ -51,6 +64,5 @@ class ResponseManager {
                 }
             }
     }
+
 }
-
-
