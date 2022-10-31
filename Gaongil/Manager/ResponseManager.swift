@@ -16,6 +16,8 @@ class ResponseManager {
     
     static let shared = ResponseManager()
     
+    private func init() { }
+    
     func fetchLawData(_ completionHandler: @escaping (([[Row]]) -> Void)) {
         
         let url = APIConstants.baseURL
