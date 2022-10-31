@@ -16,8 +16,6 @@ class ResponseManager {
     
     static let shared = ResponseManager()
     
-    private init() { }
-    
     func fetchLawData(_ completionHandler: @escaping (([[Row]]) -> Void)) {
         
         let url = APIConstants.baseURL
@@ -52,10 +50,8 @@ class ResponseManager {
                             
                             rowBoxes.forEach { rows in
                                 self.rows.append(rows)
-                                
                             }
                             completionHandler(rowBoxes)
-                            
                         } catch {
                             print(error.localizedDescription)
                         }

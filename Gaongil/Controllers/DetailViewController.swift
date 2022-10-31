@@ -7,8 +7,6 @@
 
 import UIKit
 
-import Alamofire
-
 class DetailViewController: UIViewController {
     
     var instituteView = CustomView()
@@ -100,19 +98,6 @@ class DetailViewController: UIViewController {
             self?.contentTextView.text = self?.shared.rows[0][1].linkUrl ?? String()
         }
     }
-    
-    /*
-    func viewWillAppear() {
-        super.viewWillAppear(true)
-        
-        navigationController?.title = "법안 상세내용"
-        navigationController?.isNavigationBarHidden = false
-        
-        // TODO: star toggle 구현하기
-        navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), menu: .none)
-        navigationController?.navigationItem.backButtonTitle = ""
-    }
-     */
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([

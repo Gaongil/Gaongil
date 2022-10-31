@@ -1,6 +1,5 @@
 
 import Foundation
-import Alamofire
 
 // MARK: - LawResponse
 struct LawResponse: Codable {
@@ -15,11 +14,6 @@ struct LawResponse: Codable {
 struct List: Codable {
     var head: [Head]?
     var row: [Row]?
-
-    enum CodingKeys: String, CodingKey {
-        case head = "head"
-        case row = "row"
-    }
 }
 
 // MARK: - Head
