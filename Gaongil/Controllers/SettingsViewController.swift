@@ -19,6 +19,8 @@ struct SettingsOption {
 
 class SettingsViewController: UIViewController {
     
+    var models = [Sections]()
+    
     //MARK: Properties
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -36,22 +38,21 @@ class SettingsViewController: UIViewController {
         return table
     }()
     
-    var models = [Sections]()
     
     //MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        [titleLabel, settingsTableView].forEach { view.addSubview($0)}
+        [titleLabel, settingsTableView].forEach { view.addSubview($0) }
         
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        configure()
+        SettingTableViewCellConfigure()
         configureConstraints()
     }
     
-    private func configure() {
+    private func SettingTableViewCellConfigure() {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
                 
@@ -81,7 +82,6 @@ class SettingsViewController: UIViewController {
             
         ])
     }
-
 }
 
 
