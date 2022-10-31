@@ -8,9 +8,10 @@
 import Foundation
 
 struct LawInformation {
-    var institution: String
-    var progress: String
-    var suggestionDate: String
+    var billId: String
+    var billName: String
+    var committee: String
+    var procDate: String
+    var procResultCd: String?
     var proposer: String
 }
-
