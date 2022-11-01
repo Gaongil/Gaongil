@@ -38,11 +38,11 @@ class SettingsViewController: UIViewController {
         
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        SettingTableViewCellConfigure()
+        SettingsTableViewCellConfigure()
         configureConstraints()
     }
     
-    private func SettingTableViewCellConfigure() {
+    private func SettingsTableViewCellConfigure() {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
                 
