@@ -16,7 +16,7 @@ class ResponseManager {
     
     static let shared = ResponseManager()
     
-    private func init() { }
+    private init() { }
     
     func fetchLawData(_ completionHandler: @escaping (([[Row]]) -> Void)) {
         

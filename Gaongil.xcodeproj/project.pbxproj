@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59580EF6290379210035A84A /* SettingsTableViewCell.swift */; };
-		596B15B629012B2000DD7DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596B15B529012B2000DD7DA1 /* SettingsViewController.swift */; };
-		599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599A788929112E990070CE15 /* SettingsViewModel.swift */; };
-
 		3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBF92903087900E5342D /* TodayLawViewController.swift */; };
 		3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */; };
 		3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */; };
-		3FEECC0029030C7600E5342D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFF29030C7600E5342D /* SettingsViewController.swift */; };
+		59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59580EF6290379210035A84A /* SettingsTableViewCell.swift */; };
+		596B15B629012B2000DD7DA1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596B15B529012B2000DD7DA1 /* SettingsViewController.swift */; };
+		599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599A788929112E990070CE15 /* SettingsViewModel.swift */; };
 		BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */; };
 		BF0AC0A528FBDFFB009729A1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A428FBDFFB009729A1 /* Category.swift */; };
 		BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */; };
@@ -38,16 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
-		59580EF6290379210035A84A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		596B15B529012B2000DD7DA1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		599A788929112E990070CE15 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-
 		3FEECBF92903087900E5342D /* TodayLawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawViewController.swift; sourceTree = "<group>"; };
 		3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		3FEECBFF29030C7600E5342D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-
+		59580EF6290379210035A84A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		596B15B529012B2000DD7DA1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		599A788929112E990070CE15 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectCategoryCollectionViewCell.swift; path = Gaongil/Views/SelectCategoryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		BF0AC0A428FBDFFB009729A1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Gaongil/Model/Category.swift; sourceTree = SOURCE_ROOT; };
 		BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstanrs.swift; sourceTree = "<group>"; };
@@ -114,7 +108,6 @@
 				3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */,
 				3FEECBF92903087900E5342D /* TodayLawViewController.swift */,
 				3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */,
-				3FEECBFF29030C7600E5342D /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,7 +262,6 @@
 				BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */,
 				BF752F66290143B00083A72C /* Variables.swift in Sources */,
 				3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */,
-				3FEECC0029030C7600E5342D /* SettingsViewController.swift in Sources */,
 				BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */,
 				BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */,
 				BF788B9029055A8C002BF8C0 /* Law.swift in Sources */,
