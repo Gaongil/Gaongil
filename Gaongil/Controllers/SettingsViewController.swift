@@ -99,6 +99,3 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         model.handler()
     }
 }
-        ])
-    }
-}
