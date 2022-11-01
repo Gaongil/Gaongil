@@ -90,7 +90,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return screenHeight / 14.03
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
