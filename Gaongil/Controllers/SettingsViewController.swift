@@ -7,16 +7,6 @@
 
 import UIKit
 
-struct Sections {
-    let title: String
-    let options: [SettingsOption]
-}
-
-struct SettingsOption {
-    let title: String
-    let handler: (() -> Void)
-}
-
 class SettingsViewController: UIViewController {
     
     var models = [Sections]()
