@@ -3,7 +3,7 @@
 //  Gaongil
 //
 //  Created by Seik Oh on 20/10/2022.
-//
+
 
 import UIKit
 
@@ -97,5 +97,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let model = models[indexPath.section].options[indexPath.row]
         model.handler()
+    }
+}
+        ])
     }
 }
