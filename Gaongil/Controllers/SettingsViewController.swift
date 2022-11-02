@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         [titleLabel, settingsTableView].forEach { view.addSubview($0) }
-        
+        navigationItem.title = "설정"
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         SettingsTableViewCellConfigure()
@@ -45,7 +45,10 @@ class SettingsViewController: UIViewController {
     private func SettingsTableViewCellConfigure() {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
-                
+                let SelectCategoryVC = SelectCategoryViewController()
+                self.navigationController?.pushViewController(SelectCategoryVC, animated: true)
+                // FavoriteVC.modalPresentationStyle = .fullScreen
+                self.present(SelectCategoryVC, animated: true)
             },
             SettingsOption(title: "개발자") {
                 
