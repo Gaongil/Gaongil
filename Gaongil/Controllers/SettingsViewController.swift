@@ -49,7 +49,8 @@ class SettingsViewController: UIViewController {
                 self.navigationController?.pushViewController(SelectCategoryVC, animated: true)
             },
             SettingsOption(title: "개발자") {
-                
+                let DeveloperPageVC = DeveloperPageViewController()
+                self.navigationController?.pushViewController(DeveloperPageVC, animated: true)
             },
             SettingsOption(title: "개인정보 처리방침") {
                 //TODO: URL을 개인정보 처리방침이 있는 Notion 링크로 추후에 수정 필요
