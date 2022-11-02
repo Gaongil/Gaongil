@@ -50,12 +50,30 @@ class DeveloperPageViewController: UIViewController {
         return label
     }()
     
+    private var lineViewOne: UIView = {
+        let line = UIView()
+        line.backgroundColor = .customLineGray
+        line.layer.masksToBounds = true
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
+    private var lineViewTwo: UIView = {
+        let line = UIView()
+        line.backgroundColor = .customLineGray
+        line.layer.masksToBounds = true
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         [largeTitleLabel,
          appVersionTitleLabel,
          appVersionNumberLabel,
+         lineViewOne,
+         lineViewTwo,
          developerTitleLabel,
          developerNameLabel].forEach { view.addSubview($0) }
         configureConstraints()
@@ -72,9 +90,20 @@ class DeveloperPageViewController: UIViewController {
             appVersionTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
             appVersionNumberLabel.topAnchor.constraint(equalTo: largeTitleLabel.bottomAnchor, constant: screenHeight / 30.54),
             appVersionNumberLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
+            lineViewOne.topAnchor.constraint(equalTo: appVersionTitleLabel.bottomAnchor, constant: 4),
+            lineViewOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
+            lineViewOne.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
+            lineViewOne.widthAnchor.constraint(equalToConstant: screenWidth),
+            lineViewOne.heightAnchor.constraint(equalToConstant: 1),
+            
             developerTitleLabel.topAnchor.constraint(equalTo: lineViewOne.bottomAnchor, constant: screenHeight / 30.54 * 2),
             developerTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
             developerTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
+            lineViewTwo.topAnchor.constraint(equalTo: developerTitleLabel.bottomAnchor, constant: 4),
+            lineViewTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
+            lineViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
+            lineViewTwo.widthAnchor.constraint(equalToConstant: screenWidth),
+            lineViewTwo.heightAnchor.constraint(equalToConstant: 1),
             developerNameLabel.topAnchor.constraint(equalTo: developerTitleLabel.bottomAnchor, constant: 12),
             developerNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
             
