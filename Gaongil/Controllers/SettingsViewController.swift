@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 30, weight: .bold)
-        label.text = "설정"
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
