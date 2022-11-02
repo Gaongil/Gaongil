@@ -47,8 +47,6 @@ class SettingsViewController: UIViewController {
             SettingsOption(title: "관심 분야 변경") {
                 let SelectCategoryVC = SelectCategoryViewController()
                 self.navigationController?.pushViewController(SelectCategoryVC, animated: true)
-                // FavoriteVC.modalPresentationStyle = .fullScreen
-                self.present(SelectCategoryVC, animated: true)
             },
             SettingsOption(title: "개발자") {
                 
