@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController {
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 30, weight: .bold)
-        label.text = "설정"
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         [titleLabel, settingsTableView].forEach { view.addSubview($0) }
-        
+        navigationItem.title = "설정"
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
         SettingsTableViewCellConfigure()
@@ -45,13 +45,18 @@ class SettingsViewController: UIViewController {
     private func SettingsTableViewCellConfigure() {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
-                
+                let SelectCategoryVC = SelectCategoryViewController()
+                self.navigationController?.pushViewController(SelectCategoryVC, animated: true)
             },
             SettingsOption(title: "개발자") {
-                
+                let DeveloperPageVC = DeveloperPageViewController()
+                self.navigationController?.pushViewController(DeveloperPageVC, animated: true)
             },
             SettingsOption(title: "개인정보 처리방침") {
-                
+                //TODO: URL을 개인정보 처리방침이 있는 Notion 링크로 추후에 수정 필요
+                if let url = URL(string: "https://www.hackingwithswift.com") {
+                    UIApplication.shared.open(url)
+                }
             },
             SettingsOption(title: "License") {
                 

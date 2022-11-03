@@ -45,4 +45,8 @@ extension UIColor {
     static var customLightGray: UIColor {
         return UIColor(rgb: 0xF5F5F5)
     }
+    
+    static var customLineGray: UIColor {
+        return UIColor(rgb: 0xCFCFCF)
+    }
 }
