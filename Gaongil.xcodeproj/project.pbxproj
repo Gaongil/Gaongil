@@ -31,7 +31,6 @@
 		BF788B9029055A8C002BF8C0 /* Law.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF788B8F29055A8C002BF8C0 /* Law.swift */; };
 		BF7AE40A28FA8CA800AF68ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AE40928FA8CA800AF68ED /* AppDelegate.swift */; };
 		BF7AE40C28FA8CA800AF68ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AE40B28FA8CA800AF68ED /* SceneDelegate.swift */; };
-		BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AE40D28FA8CA800AF68ED /* ViewController.swift */; };
 		BF7AE41328FA8CA800AF68ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF7AE41228FA8CA800AF68ED /* Assets.xcassets */; };
 		BF7AE41628FA8CA800AF68ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF7AE41428FA8CA800AF68ED /* LaunchScreen.storyboard */; };
 		BF915CB6290BFC7A006DD4B1 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BF915CB5290BFC7A006DD4B1 /* SwiftyJSON */; };
@@ -63,7 +62,6 @@
 		BF7AE40628FA8CA800AF68ED /* Gaongil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gaongil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF7AE40928FA8CA800AF68ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF7AE40B28FA8CA800AF68ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF7AE40D28FA8CA800AF68ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF7AE41228FA8CA800AF68ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF7AE41528FA8CA800AF68ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF7AE41728FA8CA800AF68ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 				BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */,
 				3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */,
 				BF05FCDB291501EA00FEB61B /* Setting */,
-				BF7AE40D28FA8CA800AF68ED /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 				BF788B8B29054244002BF8C0 /* APIKey.swift in Sources */,
 				BF788B8E290545C0002BF8C0 /* ResponseManager.swift in Sources */,
 				3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */,
-				BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */,
 				59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */,
 				599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */,
 				BF36E2C428FEA28A007B9E15 /* Shadow.swift in Sources */,
