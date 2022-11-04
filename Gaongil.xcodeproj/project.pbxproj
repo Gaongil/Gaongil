@@ -83,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF05FCDB291501EA00FEB61B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				596B15B529012B2000DD7DA1 /* SettingsViewController.swift */,
+				599A789129123E1C0070CE15 /* DeveloperPageViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		BF6D1A1128FA92B600CEE971 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +118,13 @@
 		BF6D1A1328FA92BB00CEE971 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF7AE40D28FA8CA800AF68ED /* ViewController.swift */,
-				596B15B529012B2000DD7DA1 /* SettingsViewController.swift */,
-				599A789129123E1C0070CE15 /* DeveloperPageViewController.swift */,
 				BFE25E6F28FA9B370078A84D /* SelectCategoryViewController.swift */,
-				BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */,
 				3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */,
 				3FEECBF92903087900E5342D /* TodayLawViewController.swift */,
+				BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */,
 				3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */,
+				BF05FCDB291501EA00FEB61B /* Setting */,
+				BF7AE40D28FA8CA800AF68ED /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
