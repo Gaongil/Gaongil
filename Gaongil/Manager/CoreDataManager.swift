@@ -1,0 +1,72 @@
+//
+//  CoreDataManager.swift
+//  Gaongil
+//
+//  Created by ParkJunHyuk on 2022/11/02.
+//
+
+import UIKit
+import CoreData
+
+class CoreDataManager {
+    
+    /// Core Data 를 관리 하기 위한 객체를 싱글톤으로 생성
+    static let shared: CoreDataManager = CoreDataManager()
+    
+    private let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    lazy var container = appDelegate?.persistentContainer.viewContext
+    
+    // MARK: - Save Core Data
+    
+    func saveCoreData(name: String, isCategorySelected: Bool, completion: @escaping (Bool) -> Void) {
+        guard let container = self.container,
+              let entity = NSEntityDescription.entity(forEntityName: "Committee", in: container) else {return}
+        
+        guard let committeeData = NSManagedObject(entity: entity, insertInto: container) as? Committee else {return}
+        
+        committeeData.name = name
+        committeeData.isSelected = isCategorySelected
+        
+        do {
+            try container.save()
+            completion(true)
+        } catch {
+            print(error.localizedDescription)
+            completion(false)
+        }
+    }
+    
+    // MARK: - Load Core Data
+    
+    func loadCoreData<T: NSManagedObject>(request: NSFetchRequest<T>) -> [T] {
+        guard let container = self.container else { return [] }
+        do {
+            let result = try container.fetch(request)
+            return result
+        } catch {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
+    
+    // MARK: - Delete Core Data
+    
+    func deleteCoreData<T: NSManagedObject>(at index: Int, request: NSFetchRequest<T>) -> Bool {
+        request.predicate = NSPredicate(format: "index = %@", NSNumber(value: index))
+        
+        do {
+            if let recentTerms = try container?.fetch(request) {
+                if recentTerms.count == 0 { return false }
+                container?.delete(recentTerms[0])
+                try container?.save()
+                return true
+            }
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+        
+        return false
+    }
+}
