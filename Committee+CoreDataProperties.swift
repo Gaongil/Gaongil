@@ -21,6 +21,6 @@ extension Committee {
 
 }
 
-extension Committee : Identifiable {
+extension Committee: Identifiable {
 
 }
