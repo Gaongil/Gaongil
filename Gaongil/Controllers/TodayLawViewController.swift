@@ -69,4 +69,8 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
         return CGSize(width: collectionViewCellWidth, height: collectionViewCellHeight)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }
