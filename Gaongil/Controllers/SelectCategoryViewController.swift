@@ -10,6 +10,7 @@ import UIKit
 class SelectCategoryViewController: UIViewController {
 
     var categories = Category.categoryNames
+    let coreDataManager = CoreDataManager.shared
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -71,6 +72,20 @@ class SelectCategoryViewController: UIViewController {
         selectCategoryCollectionView.delegate = self
         view.addSubview(floatingButton)
         configureConstraints()
+        
+        /// 버튼 누를 시 실행되는 action
+        floatingButton.addAction(UIAction(title: "", handler: { [self] action in
+            for data in categories {
+                if data.isCategorySelected == true {
+                    
+                    coreDataManager.saveCoreData(name: data.name, isCategorySelected: data.isCategorySelected) { _ in }
+                }
+            }
+            
+            let newViewController = MainTabBarController()
+            self.navigationController?.pushViewController(newViewController, animated: true)
+
+        }), for: .touchUpInside)
     }
     
     private func configureConstraints() {

@@ -19,6 +19,12 @@ class MainTabBarController: UITabBarController {
         
     }
     
+    /// 분야 설정 후 Feed 화면으로 넘어갔을때 뒤로가기 Bar 없애기
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     func configureViewControllers() {
         let law = TodayLawViewController()
         let lawNavigation = templateNavigationController(image: UIImage(systemName: "book.closed"), title: "오늘의 법안", rootViewController: law)
