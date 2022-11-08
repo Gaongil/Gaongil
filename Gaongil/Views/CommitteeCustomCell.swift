@@ -18,18 +18,6 @@ class CommitteeCustomCell: UICollectionViewCell {
         return label
     }()
     
-//    override var isSelected: Bool {
-//      didSet {
-//        if isSelected {
-//            backgroundColor = .customSelectedGreen
-//            categoryLabel.textColor = .white
-//        } else {
-//            backgroundColor = .customUnselectedGreen
-//            categoryLabel.textColor = .customBlack
-//        }
-//      }
-//    }
-    
     override var isSelected: Bool {
         willSet {
             self.setSelected(newValue)

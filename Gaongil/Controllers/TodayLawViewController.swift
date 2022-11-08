@@ -9,6 +9,10 @@ import UIKit
 
 class TodayLawViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    let committeeListView = CommitteeListView()
+    
     private var todayLawCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -24,11 +28,6 @@ class TodayLawViewController: UIViewController {
         return collectionView
     }()
     
-    // MARK: viewDidLoad()
-    // MARK: - Properties
-    
-    let committeeListView = CommitteeListView()
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -36,13 +35,11 @@ class TodayLawViewController: UIViewController {
         
         self.view.backgroundColor = .white
         self.navigationItem.title = "오늘의 법안"
-        [todayLawCollectionView].forEach { view.addSubview($0) }
+        [todayLawCollectionView, committeeListView].forEach { view.addSubview($0) }
         
         todayLawCollectionView.dataSource = self
         todayLawCollectionView.delegate = self
-        
-        view.addSubview(committeeListView)
-        
+
         configureConstraints()
     }
     
@@ -53,16 +50,14 @@ class TodayLawViewController: UIViewController {
         committeeListView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            todayLawCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            todayLawCollectionView.topAnchor.constraint(equalTo: committeeListView.bottomAnchor),
             todayLawCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             todayLawCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            todayLawCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            todayLawCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
             committeeListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            
             committeeListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            
             committeeListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
             committeeListView.heightAnchor.constraint(equalToConstant: screenHeight / 15)
         ])
     }
@@ -73,7 +68,7 @@ class TodayLawViewController: UIViewController {
 
 extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
