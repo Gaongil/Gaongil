@@ -9,9 +9,7 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     
-    // MARK: - Properties
-    
-    let committeeListView = CommitteeListView()
+    let categoryCollectionView = TodayLawViewController().categoryCollectionView
     
     // MARK: - Lifecycle
     
@@ -21,7 +19,7 @@ class FavoriteViewController: UIViewController {
         self.view.backgroundColor = .white
         self.navigationItem.title = "관심 법안"
         
-        view.addSubview(committeeListView)
+        view.addSubview(categoryCollectionView)
         
         configureConstraints()
     }
@@ -30,13 +28,13 @@ class FavoriteViewController: UIViewController {
     
     private func configureConstraints() {
         
-        committeeListView.translatesAutoresizingMaskIntoConstraints = false
+        categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            committeeListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            committeeListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            committeeListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            committeeListView.heightAnchor.constraint(equalToConstant: screenHeight / 15)
+            categoryCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            categoryCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            categoryCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            categoryCollectionView.heightAnchor.constraint(equalToConstant: screenHeight / 15)
         ])
     }
     
