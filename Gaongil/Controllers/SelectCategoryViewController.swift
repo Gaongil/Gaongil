@@ -10,6 +10,7 @@ import UIKit
 class SelectCategoryViewController: UIViewController {
 
     var categories = Category.categoryNames
+    let coreDataManager = CoreDataManager.shared
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -37,6 +38,9 @@ class SelectCategoryViewController: UIViewController {
         button.layer.cornerRadius = 8
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        /// 버튼 누를 시 실행되는 action Target 정하기
+        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -59,6 +63,20 @@ class SelectCategoryViewController: UIViewController {
         return collectionView
     }()
     
+    /// 버튼 누를 시 실행되는 action
+    @objc func startButtonTapped() {
+        for data in categories {
+            if data.isCategorySelected == true {
+                coreDataManager.saveCoreData(name: data.name, isCategorySelected: data.isCategorySelected) { _ in }
+            }
+        }
+        
+        let newViewController = MainTabBarController()
+        self.navigationController?.pushViewController(newViewController, animated: true)
+
+    }
+    
+    
     //MARK: viewDidLoad()
     
     override func viewDidLoad() {
@@ -71,6 +89,7 @@ class SelectCategoryViewController: UIViewController {
         selectCategoryCollectionView.delegate = self
         view.addSubview(floatingButton)
         configureConstraints()
+        
     }
     
     private func configureConstraints() {
@@ -85,7 +104,6 @@ class SelectCategoryViewController: UIViewController {
             selectCategoryCollectionView.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: screenHeight / 30.54),
             selectCategoryCollectionView.bottomAnchor.constraint(equalTo: floatingButton.topAnchor, constant: 0),
             selectCategoryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
-
             selectCategoryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
             
             floatingButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

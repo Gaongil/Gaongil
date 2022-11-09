@@ -16,6 +16,18 @@ class CoreDataManager {
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
     lazy var container = appDelegate?.persistentContainer.viewContext
     
+    lazy var fetchedResultsController: NSFetchedResultsController<Committee> = {
+        let fetchRequest: NSFetchRequest<Committee> = Committee.fetchRequest()
+
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        fetchRequest.fetchBatchSize = 20
+
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: container!, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultsController
+    }()
+    
     // MARK: - Save Core Data
     
     func saveCoreData(name: String, isCategorySelected: Bool, completion: @escaping (Bool) -> Void) {
