@@ -11,7 +11,6 @@
 		3F3C61022912A745002D1168 /* CommitteeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C61002912A745002D1168 /* CommitteeModel.xcdatamodeld */; };
 		3F3C61052912A7E2002D1168 /* Committee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C61032912A7E2002D1168 /* Committee+CoreDataClass.swift */; };
 		3F3C61062912A7E2002D1168 /* Committee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3C61042912A7E2002D1168 /* Committee+CoreDataProperties.swift */; };
-		3F4E3CDB2914B0A1005D1293 /* CommitteeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */; };
 		3F4E3CDD2914B5D5005D1293 /* CommitteeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */; };
 		3F4E3CED2914C32B005D1293 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CEC2914C32B005D1293 /* APIKey.swift */; };
 		3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBF92903087900E5342D /* TodayLawViewController.swift */; };
@@ -48,7 +47,6 @@
 		3F3C61012912A745002D1168 /* CommitteeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CommitteeModel.xcdatamodel; sourceTree = "<group>"; };
 		3F3C61032912A7E2002D1168 /* Committee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Committee+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F3C61042912A7E2002D1168 /* Committee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Committee+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeListView.swift; sourceTree = "<group>"; };
 		3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeCustomCell.swift; sourceTree = "<group>"; };
 		3F4E3CEC2914C32B005D1293 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		3FEECBF92903087900E5342D /* TodayLawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				59580EF6290379210035A84A /* SettingsTableViewCell.swift */,
 				BF05FCD72913F7F400FEB61B /* TodayLawCollectionViewCell.swift */,
 				BF05FCD92914D23100FEB61B /* CircularProgressBarView.swift */,
-				3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */,
 				3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */,
 			);
 			path = Views;
@@ -300,11 +297,9 @@
 				BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */,
 				BF788B9029055A8C002BF8C0 /* Law.swift in Sources */,
 				3F4E3CDD2914B5D5005D1293 /* CommitteeCustomCell.swift in Sources */,
-				3F4E3CDB2914B0A1005D1293 /* CommitteeListView.swift in Sources */,
 				BF788B8E290545C0002BF8C0 /* ResponseManager.swift in Sources */,
 				3F3C60FF2912A5F7002D1168 /* CoreDataManager.swift in Sources */,
 				3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */,
-				BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */,
 				3F3C61052912A7E2002D1168 /* Committee+CoreDataClass.swift in Sources */,
 				59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */,
 				599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */,
