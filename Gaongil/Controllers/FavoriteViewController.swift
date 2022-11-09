@@ -34,11 +34,8 @@ class FavoriteViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             committeeListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            
             committeeListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            
             committeeListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            
             committeeListView.heightAnchor.constraint(equalToConstant: screenHeight / 15)
         ])
     }
