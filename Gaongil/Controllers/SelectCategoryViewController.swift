@@ -9,6 +9,7 @@ import UIKit
 
 class SelectCategoryViewController: UIViewController {
 
+    public var isRegistered: Bool = false
     var categories = Category.categoryNames
     let coreDataManager = CoreDataManager.shared
     
@@ -73,7 +74,7 @@ class SelectCategoryViewController: UIViewController {
         
         let newViewController = MainTabBarController()
         self.navigationController?.pushViewController(newViewController, animated: true)
-
+        UserDefaults.standard.set(true, forKey: "isRegistered")
     }
     
     
