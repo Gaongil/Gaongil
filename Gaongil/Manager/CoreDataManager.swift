@@ -30,7 +30,7 @@ class CoreDataManager {
     
     // MARK: - Save Core Data
     
-    func saveCoreData(name: String, isCategorySelected: Bool, completion: @escaping (Bool) -> Void) {
+    func saveCommitteeCoreData(name: String, isCategorySelected: Bool, completion: @escaping (Bool) -> Void) {
         guard let container = self.container,
               let entity = NSEntityDescription.entity(forEntityName: "Committee", in: container) else {return}
         
@@ -38,6 +38,28 @@ class CoreDataManager {
         
         committeeData.name = name
         committeeData.isSelected = isCategorySelected
+        
+        do {
+            try container.save()
+            completion(true)
+        } catch {
+            print(error.localizedDescription)
+            completion(false)
+        }
+    }
+    
+    func saveFavoriteCoreData(lawTitle: String, institute: String, progress: String, proposer: String, suggestionDate: String, contentText: String, completion: @escaping (Bool) -> Void) {
+        guard let container = self.container,
+              let entity = NSEntityDescription.entity(forEntityName: "Favorite", in: container) else {return}
+        
+        guard let favoriteData = NSManagedObject(entity: entity, insertInto: container) as? Favorite else {return}
+        
+        favoriteData.lawTitle = lawTitle
+        favoriteData.institute = institute
+        favoriteData.progress = progress
+        favoriteData.proposer = progress
+        favoriteData.suggestionDate = suggestionDate
+        favoriteData.contentText = contentText
         
         do {
             try container.save()

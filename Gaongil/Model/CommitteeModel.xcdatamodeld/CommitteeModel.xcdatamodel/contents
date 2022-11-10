@@ -4,4 +4,12 @@
         <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
+        <attribute name="contentText" optional="YES" attributeType="String"/>
+        <attribute name="institute" optional="YES" attributeType="String"/>
+        <attribute name="lawTitle" optional="YES" attributeType="String"/>
+        <attribute name="progress" optional="YES" attributeType="String"/>
+        <attribute name="proposer" optional="YES" attributeType="String"/>
+        <attribute name="suggestionDate" optional="YES" attributeType="String"/>
+    </entity>
 </model>

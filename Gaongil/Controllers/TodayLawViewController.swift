@@ -87,6 +87,7 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
+        detailViewController.selectedIndex = indexPath.row
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
