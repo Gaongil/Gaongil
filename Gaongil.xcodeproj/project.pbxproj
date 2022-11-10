@@ -14,6 +14,9 @@
 		3F4E3CDB2914B0A1005D1293 /* CommitteeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */; };
 		3F4E3CDD2914B5D5005D1293 /* CommitteeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */; };
 		3F4E3CED2914C32B005D1293 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CEC2914C32B005D1293 /* APIKey.swift */; };
+		3F4E3CF8291BA816005D1293 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CF6291BA816005D1293 /* Favorite+CoreDataClass.swift */; };
+		3F4E3CF9291BA816005D1293 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CF7291BA816005D1293 /* Favorite+CoreDataProperties.swift */; };
+		3F4E3D3B291CED90005D1293 /* CommitteeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3D3A291CED90005D1293 /* CommitteeName.swift */; };
 		3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBF92903087900E5342D /* TodayLawViewController.swift */; };
 		3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */; };
 		3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */; };
@@ -51,6 +54,9 @@
 		3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeListView.swift; sourceTree = "<group>"; };
 		3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeCustomCell.swift; sourceTree = "<group>"; };
 		3F4E3CEC2914C32B005D1293 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		3F4E3CF6291BA816005D1293 /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3F4E3CF7291BA816005D1293 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3F4E3D3A291CED90005D1293 /* CommitteeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeName.swift; sourceTree = "<group>"; };
 		3FEECBF92903087900E5342D /* TodayLawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawViewController.swift; sourceTree = "<group>"; };
 		3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				599A788929112E990070CE15 /* SettingsViewModel.swift */,
 				BF788B8F29055A8C002BF8C0 /* Law.swift */,
 				3F3C61002912A745002D1168 /* CommitteeModel.xcdatamodeld */,
+				3F4E3D3A291CED90005D1293 /* CommitteeName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +178,8 @@
 		BF7AE3FD28FA8CA800AF68ED = {
 			isa = PBXGroup;
 			children = (
+				3F4E3CF6291BA816005D1293 /* Favorite+CoreDataClass.swift */,
+				3F4E3CF7291BA816005D1293 /* Favorite+CoreDataProperties.swift */,
 				3F3C61032912A7E2002D1168 /* Committee+CoreDataClass.swift */,
 				3F3C61042912A7E2002D1168 /* Committee+CoreDataProperties.swift */,
 				BF7AE40828FA8CA800AF68ED /* Gaongil */,
@@ -296,15 +305,16 @@
 				3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */,
 				3F3C61022912A745002D1168 /* CommitteeModel.xcdatamodeld in Sources */,
 				3F4E3CED2914C32B005D1293 /* APIKey.swift in Sources */,
+				3F4E3CF9291BA816005D1293 /* Favorite+CoreDataProperties.swift in Sources */,
 				BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */,
 				BF36E2C028FE8159007B9E15 /* LawInformation.swift in Sources */,
 				BF788B9029055A8C002BF8C0 /* Law.swift in Sources */,
+				3F4E3D3B291CED90005D1293 /* CommitteeName.swift in Sources */,
 				3F4E3CDD2914B5D5005D1293 /* CommitteeCustomCell.swift in Sources */,
 				3F4E3CDB2914B0A1005D1293 /* CommitteeListView.swift in Sources */,
 				BF788B8E290545C0002BF8C0 /* ResponseManager.swift in Sources */,
 				3F3C60FF2912A5F7002D1168 /* CoreDataManager.swift in Sources */,
 				3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */,
-				BF7AE40E28FA8CA800AF68ED /* ViewController.swift in Sources */,
 				3F3C61052912A7E2002D1168 /* Committee+CoreDataClass.swift in Sources */,
 				59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */,
 				599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */,
@@ -313,6 +323,7 @@
 				BF6D1A1728FA930000CEE971 /* Colors.swift in Sources */,
 				BF05FCD82913F7F400FEB61B /* TodayLawCollectionViewCell.swift in Sources */,
 				BF36E2C228FE83C2007B9E15 /* CustomView.swift in Sources */,
+				3F4E3CF8291BA816005D1293 /* Favorite+CoreDataClass.swift in Sources */,
 				BFE25E7028FA9B370078A84D /* SelectCategoryViewController.swift in Sources */,
 				BF7AE40A28FA8CA800AF68ED /* AppDelegate.swift in Sources */,
 				3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */,
@@ -460,7 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N3H27N59VG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gaongil/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -491,7 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N3H27N59VG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gaongil/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -18,9 +18,10 @@ class ResponseManager {
     
     private init() { }
     
-    func fetchLawData(_ completionHandler: @escaping (([[Row]]) -> Void)) {
-        
-        let url = APIConstants.baseURL
+    func fetchLawData(name: String, _ completionHandler: @escaping (([[Row]]) -> Void)) {
+        print(name)
+        let committeeName = CommitteeName(rawValue: name)?.fullName ?? String()
+        let url = URLComponents(string: APIConstants.committeeURL + committeeName)!
         
         let header: HTTPHeaders = [
             "Content-Type": "application/json",
@@ -51,6 +52,7 @@ class ResponseManager {
                             print("row들 개수 :\(rowBoxes[0].count)")
                             
                             rowBoxes.forEach { rows in
+                                self.rows.removeAll()
                                 self.rows.append(rows)
                             }
                             completionHandler(rowBoxes)

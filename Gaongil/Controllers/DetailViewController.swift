@@ -15,6 +15,15 @@ class DetailViewController: UIViewController {
     var proposerView = CustomView()
     
     var shared = ResponseManager.shared
+    let coreDataManager = CoreDataManager.shared
+    var selectedIndex = 0
+    
+//    var favoriteLawIsSelected : Bool = false{
+//        willSet {
+//            self.setSelected(newValue)
+//        }
+//    }
+    
     
     private var lawTitleLabel: UILabel = {
         let label = UILabel()
@@ -76,9 +85,35 @@ class DetailViewController: UIViewController {
         return textView
     }()
     
+    @objc func favoriteLaw() {
+        
+        let lawTitle = lawTitleLabel.text ?? String()
+        let institute = instituteView.contentLabel.text ?? String()
+        let progress = progressView.contentLabel.text ?? String()
+        let proposer = proposerView.contentLabel.text ?? String()
+        let suggestionDate = suggestionDateView.contentLabel.text ?? String()
+        let contentText = contentTextView.text ?? String()
+        
+        coreDataManager.saveFavoriteCoreData(lawTitle: lawTitle, institute: institute, progress: progress, proposer: proposer, suggestionDate: suggestionDate, contentText: contentText) { _ in }
+        
+//        if favoriteLawIsSelected {
+//            favoriteLawIsSelected = false
+//            print(favoriteLawIsSelected)
+//        } else {
+//            favoriteLawIsSelected = true
+//            print(favoriteLawIsSelected)
+//        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view?.backgroundColor = .white
+        
+        self.navigationItem.title = "법안 상세내용"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName:"star"), style: .plain, target: self, action: #selector(favoriteLaw))
+        self.navigationController?.navigationBar.tintColor = .customSelectedGreen
+        print(selectedIndex)
         
         [lawTitleLabel, cardView, contentTextView].forEach { view.addSubview($0) }
         cardView.addSubview(informationStackView)
@@ -89,14 +124,14 @@ class DetailViewController: UIViewController {
                            radius: 6,
                            opacity: 0.2)
         
-        shared.fetchLawData() { [weak self] _ in
-            self?.lawTitleLabel.text = self?.shared.rows[0][0].billName ?? String()
-            self?.instituteView.contentLabel.text = self?.shared.rows[0][0].currCommittee ?? String()
-            self?.progressView.contentLabel.text = self?.shared.rows[0][0].procResultCd ?? String()
-            self?.proposerView.contentLabel.text = self?.shared.rows[0][0].proposer ?? String()
-            self?.suggestionDateView.contentLabel.text = self?.shared.rows[0][0].proposeDt ?? String()
-            self?.contentTextView.text = self?.shared.rows[0][1].linkUrl ?? String()
-        }
+//        shared.fetchLawData() { [weak self] _ in
+//            self?.lawTitleLabel.text = self?.shared.rows[0][self!.selectedIndex].billName ?? String()
+//            self?.instituteView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].currCommittee ?? String()
+//            self?.progressView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].procResultCd ?? String()
+//            self?.proposerView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].proposer ?? String()
+//            self?.suggestionDateView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].proposeDt ?? String()
+//            self?.contentTextView.text = self?.shared.rows[0][self!.selectedIndex].linkUrl ?? String()
+//        }
     }
     
     private func configureConstraints() {
