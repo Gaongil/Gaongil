@@ -100,6 +100,23 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.titleLabel.text = result[indexPath.row].billName
         cell.committeeLabel.text = result[indexPath.row].currCommittee
         
+        let results = result[indexPath.row]
+        
+//        cell.titleLabel.text = result[indexPath.row].billName
+//        cell.committeeLabel.text = result[indexPath.row].currCommittee
+        
+        cell.titleLabel.text = results.billName
+        cell.committeeLabel.text = results.currCommittee
+        cell.statusLabel.text = results.procResultCd
+        
+        if results.procResultCd == "원안가결" {
+            cell.circleView.backgroundColor = .customSelectedGreen
+        } else if results.procResultCd == "수정가결" {
+            cell.circleView.backgroundColor = .systemOrange
+        } else {
+            cell.circleView.backgroundColor = .systemRed
+        }
+        
         return cell
     }
     
