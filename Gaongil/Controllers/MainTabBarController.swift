@@ -27,13 +27,13 @@ class MainTabBarController: UITabBarController {
     
     func configureViewControllers() {
         let law = TodayLawViewController()
-        let lawNavigation = templateNavigationController(image: UIImage(systemName: "book.closed"), title: "오늘의 법안", rootViewController: law)
+        let lawNavigation = templateNavigationController(image: UIImage(systemName: "book"), title: "오늘의 법안", rootViewController: law)
         
         let favorite = FavoriteViewController()
         let favoriteNavigation = templateNavigationController(image: UIImage(systemName: "star"), title: "관심 법안", rootViewController: favorite)
         
         let setting = SettingsViewController()
-        let settingNavigation = templateNavigationController(image: UIImage(systemName: "person.crop.circle"), title: "MY", rootViewController: setting)
+        let settingNavigation = templateNavigationController(image: UIImage(systemName: "gearshape"), title: "MY", rootViewController: setting)
         
         viewControllers = [lawNavigation, favoriteNavigation, settingNavigation]
         
