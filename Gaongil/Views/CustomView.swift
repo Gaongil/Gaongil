@@ -39,7 +39,8 @@ class CustomView: UIView {
         subTitleLabel.font = .systemFont(ofSize: 18, weight: .bold)
         
         contentLabel.textColor = .customBlack
-        contentLabel.font = .systemFont(ofSize: 18, weight: .regular)
+        contentLabel.font = .systemFont(ofSize: 17, weight: .regular)
+        contentLabel.numberOfLines = 0
         
         subTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +50,7 @@ class CustomView: UIView {
         
         NSLayoutConstraint.activate([
             subTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            subTitleLabel.widthAnchor.constraint(equalToConstant: screenWidth / 3.45),
+            subTitleLabel.widthAnchor.constraint(equalToConstant: screenWidth / 4.45),
             subTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: screenWidth / 15.6),
             subTitleLabel.heightAnchor.constraint(equalToConstant: screenHeight / 38.36),
             
@@ -57,6 +58,7 @@ class CustomView: UIView {
             contentLabel.leadingAnchor.constraint(equalTo: subTitleLabel.trailingAnchor),
             contentLabel.widthAnchor.constraint(equalToConstant: screenWidth / 1.82),
             contentLabel.heightAnchor.constraint(equalToConstant: screenHeight / 38.36),
+            contentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10)
 
         ])
     }
