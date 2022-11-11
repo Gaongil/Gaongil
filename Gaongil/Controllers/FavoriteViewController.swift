@@ -108,6 +108,16 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.titleLabel.text = record.value(forKey: "lawTitle") as? String
         cell.committeeLabel.text = record.value(forKey: "institute") as? String
         
+        let progressResult = record.value(forKey: "progress") as? String
+        
+        if progressResult == "원안가결" {
+            cell.circleView.backgroundColor = .customSelectedGreen
+        } else if progressResult == "수정가결" {
+            cell.circleView.backgroundColor = .systemOrange
+        } else {
+            cell.circleView.backgroundColor = .systemRed
+        }
+        
         return cell
     }
     
