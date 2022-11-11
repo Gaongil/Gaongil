@@ -31,14 +31,27 @@ class CoreDataManager {
     lazy var fetchedFavoriteController: NSFetchedResultsController<Favorite> = {
         let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
 
-        let sort = NSSortDescriptor(key: "name", ascending: true)
-//        fetchRequest.sortDescriptors = [sort]
-        fetchRequest.fetchBatchSize = 50
+        let sort = NSSortDescriptor(key: "lawTitle", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        fetchRequest.fetchBatchSize = 20
 
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: container!, sectionNameKeyPath: nil, cacheName: nil)
+    
         return fetchedResultsController
     }()
+    
+//    lazy var fetchedFavoriteController: NSFetchedResultsController<Favorite> = {
+//        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+//
+//        let sort = NSSortDescriptor(key: "name", ascending: true)
+////        fetchRequest.sortDescriptors = [sort]
+//        fetchRequest.fetchBatchSize = 50
+//
+//        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+//                                                                  managedObjectContext: container!, sectionNameKeyPath: nil, cacheName: nil)
+//        return fetchedResultsController
+//    }()
     
     // MARK: - Save Core Data
     

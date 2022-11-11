@@ -1,13 +1,14 @@
 //
-//  DetailViewController.swift
+//  FavoriteDetailViewController.swift
 //  Gaongil
 //
-//  Created by Lena on 2022/10/18.
+//  Created by ParkJunHyuk on 2022/11/11.
 //
 
 import UIKit
+import CoreData
 
-class DetailViewController: UIViewController {
+class FavoriteDetailViewController: UIViewController {
     
     var instituteView = CustomView()
     var progressView = CustomView()
@@ -16,7 +17,7 @@ class DetailViewController: UIViewController {
     
     var shared = ResponseManager.shared
     let coreDataManager = CoreDataManager.shared
-    var result = [Row]()
+    var result = [NSManagedObject]()
     var selectedIndex = 0
     
 //    var favoriteLawIsSelected : Bool = false{
@@ -124,12 +125,12 @@ class DetailViewController: UIViewController {
                            radius: 6,
                            opacity: 0.2)
         
-            lawTitleLabel.text = shared.rows[0][selectedIndex].billName ?? String()
-            instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? String()
-            progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? String()
-            proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
-            suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
-            contentTextView.text = self.shared.rows[0][selectedIndex].linkUrl ?? String()
+        lawTitleLabel.text = result[selectedIndex].value(forKey: "lawTitle") as? String
+            instituteView.contentLabel.text = result[selectedIndex].value(forKey: "institute") as? String
+            progressView.contentLabel.text = result[selectedIndex].value(forKey: "progress") as? String
+            proposerView.contentLabel.text = result[selectedIndex].value(forKey: "proposer") as? String
+            suggestionDateView.contentLabel.text = result[selectedIndex].value(forKey: "suggestionDate") as? String
+            contentTextView.text = result[selectedIndex].value(forKey: "contentText") as? String
         
     }
     
@@ -154,8 +155,4 @@ class DetailViewController: UIViewController {
             contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
         ])
     }
-}
-
-protocol SendUpdateProtocol : class {
-    func sendUpdated()
 }
