@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 class FavoriteDetailViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class FavoriteDetailViewController: UIViewController {
     let coreDataManager = CoreDataManager.shared
     var result = [NSManagedObject]()
     var selectedIndex = 0
+    var detailLawLink = NSURL(string: "")
     
 //    var favoriteLawIsSelected : Bool = false{
 //        willSet {
@@ -87,6 +89,19 @@ class FavoriteDetailViewController: UIViewController {
         return textView
     }()
     
+    private var lawUrlButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("웹에서 보기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .customSelectedGreen
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(lawUrlButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     @objc func favoriteLaw() {
         
         let lawTitle = lawTitleLabel.text ?? String()
@@ -107,6 +122,11 @@ class FavoriteDetailViewController: UIViewController {
 //        }
     }
     
+    @objc func lawUrlButtonTapped() {
+        let detailLawSafariView: SFSafariViewController = SFSafariViewController(url: detailLawLink! as URL)
+        self.present(detailLawSafariView, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view?.backgroundColor = .white
@@ -118,6 +138,7 @@ class FavoriteDetailViewController: UIViewController {
         
         [lawTitleLabel, cardView, contentTextView].forEach { view.addSubview($0) }
         cardView.addSubview(informationStackView)
+        contentTextView.addSubview(lawUrlButton)
         
         configureConstraints()
         cardView.setShadow(offset: CGSize.init(width: 1, height: 1),
@@ -130,7 +151,7 @@ class FavoriteDetailViewController: UIViewController {
             progressView.contentLabel.text = result[selectedIndex].value(forKey: "progress") as? String
             proposerView.contentLabel.text = result[selectedIndex].value(forKey: "proposer") as? String
             suggestionDateView.contentLabel.text = result[selectedIndex].value(forKey: "suggestionDate") as? String
-            contentTextView.text = result[selectedIndex].value(forKey: "contentText") as? String
+            detailLawLink = NSURL(string: result[selectedIndex].value(forKey: "contentText") as! String)
         
     }
     
@@ -152,7 +173,12 @@ class FavoriteDetailViewController: UIViewController {
             contentTextView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: screenHeight / 26.09),
             contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),
             contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 22.94),
-            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            
+            lawUrlButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lawUrlButton.widthAnchor.constraint(equalToConstant: screenWidth / 1.13),
+            lawUrlButton.heightAnchor.constraint(equalToConstant: screenHeight / 13.19),
+            lawUrlButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }
