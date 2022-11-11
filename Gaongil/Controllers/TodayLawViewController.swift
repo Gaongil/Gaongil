@@ -97,8 +97,6 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayLawCollectionViewCell.reuseIdentifier, for: indexPath) as? TodayLawCollectionViewCell else { return UICollectionViewCell() }
         
         cell.setShadow(offset: CGSize(width: 0.3, height: 0.3), color: .lightGray, radius: 5, opacity: 0.4)
-        cell.titleLabel.text = result[indexPath.row].billName
-        cell.committeeLabel.text = result[indexPath.row].currCommittee
         
         let results = result[indexPath.row]
         

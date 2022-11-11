@@ -16,6 +16,7 @@ class MainTabBarController: UITabBarController {
         
         // tabbar 가 선택 되었을 때 색을 지정
         self.tabBar.tintColor = .black
+        self.tabBar.backgroundColor = .customLightGray
         
     }
     
@@ -33,7 +34,7 @@ class MainTabBarController: UITabBarController {
         let favoriteNavigation = templateNavigationController(image: UIImage(systemName: "star"), title: "관심 법안", rootViewController: favorite)
         
         let setting = SettingsViewController()
-        let settingNavigation = templateNavigationController(image: UIImage(systemName: "gearshape"), title: "MY", rootViewController: setting)
+        let settingNavigation = templateNavigationController(image: UIImage(systemName: "gearshape"), title: "설정", rootViewController: setting)
         
         viewControllers = [lawNavigation, favoriteNavigation, settingNavigation]
         
