@@ -24,27 +24,27 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
     public lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
-        label.textColor = .customBlack
+        label.textColor = .white
         label.text = "원안가결"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var lightFlightStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [circleView, statusLabel])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 5
-        stackView.distribution = .equalCentering
-        stackView.backgroundColor = .white
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            circleView.widthAnchor.constraint(equalToConstant: 70),
-            circleView.heightAnchor.constraint(equalToConstant: 70)])
-        
-        return stackView
-    }()
+//    lazy var lightFlightStackView: UIStackView = {
+//        let stackView = UIStackView(arrangedSubviews: [circleView, statusLabel])
+//        stackView.axis = .vertical
+//        stackView.alignment = .center
+//        stackView.spacing = 5
+//        stackView.distribution = .equalCentering
+//        stackView.backgroundColor = .white
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            circleView.widthAnchor.constraint(equalToConstant: 70),
+//            circleView.heightAnchor.constraint(equalToConstant: 70)])
+//
+//        return stackView
+//    }()
     
 
     lazy var titleLabel: UILabel = {
@@ -81,7 +81,8 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [textCellStackView, lightFlightStackView].forEach { contentView.addSubview($0) }
+        [textCellStackView, circleView].forEach { contentView.addSubview($0) }
+        circleView.addSubview(statusLabel)
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 1
@@ -103,11 +104,14 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
             textCellStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: screenWidth / 50),
             textCellStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
-            lightFlightStackView.leadingAnchor.constraint(equalTo: self.textCellStackView.trailingAnchor, constant: screenWidth / 70),
-            lightFlightStackView.heightAnchor.constraint(equalToConstant: contentView.frame.height - 30),
-            lightFlightStackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            lightFlightStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            lightFlightStackView.widthAnchor.constraint(equalToConstant: 75)
+            statusLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            statusLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            
+            circleView.leadingAnchor.constraint(equalTo: self.textCellStackView.trailingAnchor, constant: screenWidth / 70),
+            circleView.heightAnchor.constraint(equalToConstant: 70),
+            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            circleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            circleView.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
     
