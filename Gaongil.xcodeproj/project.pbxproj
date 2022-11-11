@@ -17,6 +17,7 @@
 		3F4E3CF8291BA816005D1293 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CF6291BA816005D1293 /* Favorite+CoreDataClass.swift */; };
 		3F4E3CF9291BA816005D1293 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3CF7291BA816005D1293 /* Favorite+CoreDataProperties.swift */; };
 		3F4E3D3B291CED90005D1293 /* CommitteeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3D3A291CED90005D1293 /* CommitteeName.swift */; };
+		3F4E3D43291E20A3005D1293 /* FavoriteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E3D42291E20A3005D1293 /* FavoriteDetailViewController.swift */; };
 		3FEECBFA2903087900E5342D /* TodayLawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBF92903087900E5342D /* TodayLawViewController.swift */; };
 		3FEECBFC29030B5B00E5342D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */; };
 		3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */; };
@@ -56,6 +57,7 @@
 		3F4E3CF6291BA816005D1293 /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3F4E3CF7291BA816005D1293 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3F4E3D3A291CED90005D1293 /* CommitteeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeName.swift; sourceTree = "<group>"; };
+		3F4E3D42291E20A3005D1293 /* FavoriteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailViewController.swift; sourceTree = "<group>"; };
 		3FEECBF92903087900E5342D /* TodayLawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawViewController.swift; sourceTree = "<group>"; };
 		3FEECBFB29030B5B00E5342D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				3FEECBF92903087900E5342D /* TodayLawViewController.swift */,
 				BF36E2BA28FE77DC007B9E15 /* DetailViewController.swift */,
 				3FEECBFD29030C6E00E5342D /* FavoriteViewController.swift */,
+				3F4E3D42291E20A3005D1293 /* FavoriteDetailViewController.swift */,
 				BF05FCDB291501EA00FEB61B /* Setting */,
 			);
 			path = Controllers;
@@ -320,6 +323,7 @@
 				BF6D1A1728FA930000CEE971 /* Colors.swift in Sources */,
 				BF05FCD82913F7F400FEB61B /* TodayLawCollectionViewCell.swift in Sources */,
 				BF36E2C228FE83C2007B9E15 /* CustomView.swift in Sources */,
+				3F4E3D43291E20A3005D1293 /* FavoriteDetailViewController.swift in Sources */,
 				3F4E3CF8291BA816005D1293 /* Favorite+CoreDataClass.swift in Sources */,
 				BFE25E7028FA9B370078A84D /* SelectCategoryViewController.swift in Sources */,
 				BF7AE40A28FA8CA800AF68ED /* AppDelegate.swift in Sources */,
