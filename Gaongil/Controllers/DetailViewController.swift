@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     
     var shared = ResponseManager.shared
     let coreDataManager = CoreDataManager.shared
+    var result = [Row]()
     var selectedIndex = 0
     
 //    var favoriteLawIsSelected : Bool = false{
@@ -113,7 +114,6 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName:"star"), style: .plain, target: self, action: #selector(favoriteLaw))
         self.navigationController?.navigationBar.tintColor = .customSelectedGreen
-        print(selectedIndex)
         
         [lawTitleLabel, cardView, contentTextView].forEach { view.addSubview($0) }
         cardView.addSubview(informationStackView)
@@ -124,20 +124,19 @@ class DetailViewController: UIViewController {
                            radius: 6,
                            opacity: 0.2)
         
-//        shared.fetchLawData() { [weak self] _ in
-//            self?.lawTitleLabel.text = self?.shared.rows[0][self!.selectedIndex].billName ?? String()
-//            self?.instituteView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].currCommittee ?? String()
-//            self?.progressView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].procResultCd ?? String()
-//            self?.proposerView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].proposer ?? String()
-//            self?.suggestionDateView.contentLabel.text = self?.shared.rows[0][self!.selectedIndex].proposeDt ?? String()
-//            self?.contentTextView.text = self?.shared.rows[0][self!.selectedIndex].linkUrl ?? String()
-//        }
+            lawTitleLabel.text = shared.rows[0][selectedIndex].billName ?? String()
+            instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? String()
+            progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? String()
+            proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
+            suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
+            contentTextView.text = self.shared.rows[0][selectedIndex].linkUrl ?? String()
+        
     }
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             lawTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),
-            lawTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight / 20.09 + 30),
+            lawTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: screenHeight / 30.145),
             
             cardView.topAnchor.constraint(equalTo: lawTitleLabel.bottomAnchor, constant: screenHeight / 25.09),
             cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),

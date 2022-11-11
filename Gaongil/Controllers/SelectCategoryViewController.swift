@@ -67,7 +67,7 @@ class SelectCategoryViewController: UIViewController {
     @objc func startButtonTapped() {
         for data in categories {
             if data.isCategorySelected == true {
-                coreDataManager.saveCoreData(name: data.name, isCategorySelected: data.isCategorySelected) { _ in }
+                coreDataManager.saveCommitteeCoreData(name: data.name, isCategorySelected: data.isCategorySelected) { _ in }
             }
         }
         
