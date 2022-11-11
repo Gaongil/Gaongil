@@ -13,12 +13,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        let userDefaultsIsRegistered = UserDefaults.standard.bool(forKey: "isRegistered") as Bool? ?? false
+        
+        let selectCategoryViewController = SelectCategoryViewController()
+        let mainTabBarController = MainTabBarController()
+        var rootViewController = UIViewController()
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: SelectCategoryViewController())
-//        UINavigationController(rootViewController: ViewController())
+        
+        if userDefaultsIsRegistered {
+            rootViewController = mainTabBarController
+        } else {
+            rootViewController = selectCategoryViewController
+        }
+        
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
