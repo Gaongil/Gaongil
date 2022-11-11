@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SafariServices
+
 
 class DetailViewController: UIViewController {
     
@@ -18,6 +20,8 @@ class DetailViewController: UIViewController {
     let coreDataManager = CoreDataManager.shared
     var result = [Row]()
     var selectedIndex = 0
+    var detailLawLink = NSURL(string: "")
+    
     
 //    var favoriteLawIsSelected : Bool = false{
 //        willSet {
@@ -30,6 +34,7 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.textColor = .customBlack
         label.font = .boldSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize)
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -65,8 +70,8 @@ class DetailViewController: UIViewController {
             stackView.addArrangedSubview(view)
         }
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 0
+        stackView.distribution = .equalCentering
+        stackView.spacing = 3
         stackView.backgroundColor = .clear
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -80,10 +85,22 @@ class DetailViewController: UIViewController {
         textView.isScrollEnabled = true
         textView.textColor = .customBlack
         textView.font = .systemFont(ofSize: 19, weight: .regular)
-        textView.text = ""
         textView.translatesAutoresizingMaskIntoConstraints = false
         
         return textView
+    }()
+    
+    private var lawUrlButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("웹에서 보기", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .customSelectedGreen
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(lawUrlButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     @objc func favoriteLaw() {
@@ -94,8 +111,8 @@ class DetailViewController: UIViewController {
         let proposer = proposerView.contentLabel.text ?? String()
         let suggestionDate = suggestionDateView.contentLabel.text ?? String()
         let contentText = contentTextView.text ?? String()
-        
         coreDataManager.saveFavoriteCoreData(lawTitle: lawTitle, institute: institute, progress: progress, proposer: proposer, suggestionDate: suggestionDate, contentText: contentText) { _ in }
+        
         
 //        if favoriteLawIsSelected {
 //            favoriteLawIsSelected = false
@@ -104,6 +121,11 @@ class DetailViewController: UIViewController {
 //            favoriteLawIsSelected = true
 //            print(favoriteLawIsSelected)
 //        }
+    }
+
+    @objc func lawUrlButtonTapped() {
+        let detailLawSafariView: SFSafariViewController = SFSafariViewController(url: detailLawLink! as URL)
+        self.present(detailLawSafariView, animated: true)
     }
     
     override func viewDidLoad() {
@@ -117,6 +139,7 @@ class DetailViewController: UIViewController {
         
         [lawTitleLabel, cardView, contentTextView].forEach { view.addSubview($0) }
         cardView.addSubview(informationStackView)
+        contentTextView.addSubview(lawUrlButton)
         
         configureConstraints()
         cardView.setShadow(offset: CGSize.init(width: 1, height: 1),
@@ -124,34 +147,40 @@ class DetailViewController: UIViewController {
                            radius: 6,
                            opacity: 0.2)
         
-            lawTitleLabel.text = shared.rows[0][selectedIndex].billName ?? String()
-            instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? String()
-            progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? String()
-            proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
-            suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
-            contentTextView.text = self.shared.rows[0][selectedIndex].linkUrl ?? String()
-        
+        lawTitleLabel.text = shared.rows[0][selectedIndex].billName ?? String()
+        instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? String()
+        progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? String()
+        proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
+        suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
+        detailLawLink = NSURL(string: self.shared.rows[0][selectedIndex].linkUrl ?? String())
     }
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             lawTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),
             lawTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: screenHeight / 30.145),
+            lawTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 22.94),
             
             cardView.topAnchor.constraint(equalTo: lawTitleLabel.bottomAnchor, constant: screenHeight / 25.09),
             cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),
             cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            cardView.heightAnchor.constraint(equalToConstant: screenHeight / 6.58),
+            cardView.heightAnchor.constraint(equalToConstant: screenHeight / 4),
             
-            informationStackView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: screenWidth / 25.94),
-            informationStackView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -screenWidth / 22.94),
-            informationStackView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 5),
-            informationStackView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -5),
+            informationStackView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 30),
+            informationStackView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -30),
+            informationStackView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
+            informationStackView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -20),
             
             contentTextView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: screenHeight / 26.09),
             contentTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 22.94),
             contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 22.94),
-            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+            contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            
+            lawUrlButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            lawUrlButton.widthAnchor.constraint(equalToConstant: screenWidth / 1.13),
+            lawUrlButton.heightAnchor.constraint(equalToConstant: screenHeight / 13.19),
+            lawUrlButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            
         ])
     }
 }
