@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let userDefaultsIsRegistered = UserDefaults.standard.bool(forKey: "isRegistered") as Bool? ?? false
         
         let selectCategoryViewController = SelectCategoryViewController()
-        let todayLawViewController = TodayLawViewController()
+        let mainTabBarController = MainTabBarController()
         var rootViewController = UIViewController()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         if userDefaultsIsRegistered {
-            rootViewController = todayLawViewController
+            rootViewController = mainTabBarController
         } else {
             rootViewController = selectCategoryViewController
         }
