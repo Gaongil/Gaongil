@@ -105,6 +105,8 @@ class DetailViewController: UIViewController {
     
     @objc func favoriteLaw() {
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName:"star.fill"), style: .done, target: self, action: nil)
+        
         let lawTitle = lawTitleLabel.text ?? String()
         let institute = instituteView.contentLabel.text ?? String()
         let progress = progressView.contentLabel.text ?? String()
