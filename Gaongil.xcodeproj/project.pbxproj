@@ -25,7 +25,6 @@
 		599A788A29112E990070CE15 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599A788929112E990070CE15 /* SettingsViewModel.swift */; };
 		599A789229123E1C0070CE15 /* DeveloperPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599A789129123E1C0070CE15 /* DeveloperPageViewController.swift */; };
 		BF05FCD82913F7F400FEB61B /* TodayLawCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05FCD72913F7F400FEB61B /* TodayLawCollectionViewCell.swift */; };
-		BF05FCDA2914D23100FEB61B /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05FCD92914D23100FEB61B /* CircularProgressBarView.swift */; };
 		BF0AC0A328FBD792009729A1 /* SelectCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */; };
 		BF0AC0A528FBDFFB009729A1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0AC0A428FBDFFB009729A1 /* Category.swift */; };
 		BF105A8E290E47A1006EF2D2 /* APIConstanrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */; };
@@ -65,7 +64,6 @@
 		599A788929112E990070CE15 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		599A789129123E1C0070CE15 /* DeveloperPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPageViewController.swift; sourceTree = "<group>"; };
 		BF05FCD72913F7F400FEB61B /* TodayLawCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLawCollectionViewCell.swift; sourceTree = "<group>"; };
-		BF05FCD92914D23100FEB61B /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectCategoryCollectionViewCell.swift; path = Gaongil/Views/SelectCategoryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		BF0AC0A428FBDFFB009729A1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Gaongil/Model/Category.swift; sourceTree = SOURCE_ROOT; };
 		BF105A8D290E47A1006EF2D2 /* APIConstanrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstanrs.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 				BF0AC0A228FBD792009729A1 /* SelectCategoryCollectionViewCell.swift */,
 				59580EF6290379210035A84A /* SettingsTableViewCell.swift */,
 				BF05FCD72913F7F400FEB61B /* TodayLawCollectionViewCell.swift */,
-				BF05FCD92914D23100FEB61B /* CircularProgressBarView.swift */,
 				3F4E3CDA2914B0A1005D1293 /* CommitteeListView.swift */,
 				3F4E3CDC2914B5D5005D1293 /* CommitteeCustomCell.swift */,
 			);
@@ -332,7 +329,6 @@
 				599A789229123E1C0070CE15 /* DeveloperPageViewController.swift in Sources */,
 				BF36E2BB28FE77DC007B9E15 /* DetailViewController.swift in Sources */,
 				596B15B629012B2000DD7DA1 /* SettingsViewController.swift in Sources */,
-				BF05FCDA2914D23100FEB61B /* CircularProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
