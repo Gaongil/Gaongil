@@ -14,6 +14,8 @@ class CommitteeListView: UIView, NSFetchedResultsControllerDelegate {
     
     let coreDataManager = CoreDataManager.shared
     var categoryList : [String] = ["전체"]
+    weak var delegate: CommitteeListViewDelegate?
+    var selectedCommitteeName = ""
 
     
     lazy var fetchedResultsController: NSFetchedResultsController<Committee> = {
@@ -76,6 +78,10 @@ class CommitteeListView: UIView, NSFetchedResultsControllerDelegate {
             categorycollectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    @objc private func onClickTestButton(){
+        self.delegate?.onClickButton(committeeName: selectedCommitteeName)
+    }
 }
 
 // MARK: - UICollectionView Setting
@@ -110,4 +116,20 @@ extension CommitteeListView: UICollectionViewDataSource {
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommitteeCellId", for: indexPath) as! CommitteeCustomCell
+        
+        print(categoryList[indexPath.row])
+        
+        selectedCommitteeName = CommitteeName(rawValue: categoryList[indexPath.row])?.fullName ?? String()
+        print(selectedCommitteeName)
+        onClickTestButton()
+    
+    }
+}
+
+protocol CommitteeListViewDelegate: class {
+    func onClickButton(committeeName: String)
 }

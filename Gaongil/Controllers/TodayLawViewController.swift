@@ -7,17 +7,19 @@
 
 import UIKit
 
-class TodayLawViewController: UIViewController {
+class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
     
     // MARK: - Properties
     
     let committeeListView = CommitteeListView()
+    var shared = ResponseManager.shared
+    var result = [Row]()
     
     private var todayLawCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: screenWidth / 32.5, bottom: 0, right: screenWidth / 32.5)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: screenWidth / 32.5, bottom: 0, right: screenWidth / 32.5)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TodayLawCollectionViewCell.self, forCellWithReuseIdentifier: TodayLawCollectionViewCell.reuseIdentifier)
@@ -40,7 +42,18 @@ class TodayLawViewController: UIViewController {
         todayLawCollectionView.dataSource = self
         todayLawCollectionView.delegate = self
 
+        committeeListView.delegate = self
+        
         configureConstraints()
+        
+        shared.fetchLawData(name: "") { result in
+            self.result = result[0]
+
+            DispatchQueue.main.async {
+                self.todayLawCollectionView.reloadData()
+            }
+        }
+        
     }
     
     // MARK: - Lifecycle
@@ -64,17 +77,28 @@ class TodayLawViewController: UIViewController {
     
     // MARK: - Helpers & fuction
     
+    func onClickButton(committeeName: String){
+        shared.fetchLawData(name: committeeName) { result in
+            self.result = result[0]
+
+            DispatchQueue.main.async {
+                self.todayLawCollectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return result.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayLawCollectionViewCell.reuseIdentifier, for: indexPath) as? TodayLawCollectionViewCell else { return UICollectionViewCell() }
         
         cell.setShadow(offset: CGSize(width: 0.3, height: 0.3), color: .lightGray, radius: 5, opacity: 0.4)
+        cell.titleLabel.text = result[indexPath.row].billName
+        cell.committeeLabel.text = result[indexPath.row].currCommittee
         
         return cell
     }
@@ -87,6 +111,8 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
+        
+        detailViewController.result = result
         detailViewController.selectedIndex = indexPath.row
         navigationController?.pushViewController(detailViewController, animated: true)
     }

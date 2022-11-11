@@ -19,8 +19,7 @@ class ResponseManager {
     private init() { }
     
     func fetchLawData(name: String, _ completionHandler: @escaping (([[Row]]) -> Void)) {
-        print(name)
-        let committeeName = CommitteeName(rawValue: name)?.fullName ?? String()
+        let committeeName = name
         let url = URLComponents(string: APIConstants.committeeURL + committeeName)!
         
         let header: HTTPHeaders = [
@@ -41,7 +40,6 @@ class ResponseManager {
                             
                             /// 전체 JSON 데이터
                             guard let lists = firstRow.list else { return }
-                            print("나는 lists: \(lists)")
                             
                             /// row 데이터들만 모아놓은 프로퍼티
                             let rowBoxes = lists.compactMap { $0.row }

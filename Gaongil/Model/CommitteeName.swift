@@ -26,7 +26,7 @@ enum CommitteeName: String {
 
     var fullName: String {
         switch self {
-        case .고용: return "산업통상자원중소벤쳐기업위원회"
+        case .고용: return "산업통상자원중소벤처기업위원회"
         case .보건: return "보건복지위원회"
         case .기술: return "과학기술정보방송통신위원회"
         case .환경: return "환경노동위원회"

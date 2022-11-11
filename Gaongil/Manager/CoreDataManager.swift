@@ -28,6 +28,18 @@ class CoreDataManager {
         return fetchedResultsController
     }()
     
+    lazy var fetchedFavoriteController: NSFetchedResultsController<Favorite> = {
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+//        fetchRequest.sortDescriptors = [sort]
+        fetchRequest.fetchBatchSize = 50
+
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: container!, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultsController
+    }()
+    
     // MARK: - Save Core Data
     
     func saveCommitteeCoreData(name: String, isCategorySelected: Bool, completion: @escaping (Bool) -> Void) {
