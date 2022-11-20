@@ -135,7 +135,7 @@ class DetailViewController: UIViewController {
         view?.backgroundColor = .white
         
         self.navigationItem.title = "법안 상세내용"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName:"star"), style: .plain, target: self, action: #selector(favoriteLaw))
         self.navigationController?.navigationBar.tintColor = .customSelectedGreen
         
@@ -155,6 +155,11 @@ class DetailViewController: UIViewController {
         proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
         suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
         detailLawLink = NSURL(string: self.shared.rows[0][selectedIndex].linkUrl ?? String())
+    }
+    
+    func viewDidDisappear() {
+        super.viewDidDisappear(true)
+        navigationController?.navigationBar.topItem?.largeTitleDisplayMode = .automatic
     }
     
     private func configureConstraints() {
