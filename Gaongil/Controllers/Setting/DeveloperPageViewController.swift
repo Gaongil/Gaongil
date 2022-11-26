@@ -12,7 +12,7 @@ class DeveloperPageViewController: UIViewController {
     //MARK: Properties
     private var largeTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 34, weight: .bold)
+        label.font = .systemFont(ofSize: 30, weight: .bold)
         label.text = "개발자"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -20,7 +20,7 @@ class DeveloperPageViewController: UIViewController {
     
     private var appVersionTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.text = "앱버전"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,7 +36,7 @@ class DeveloperPageViewController: UIViewController {
     
     private var developerTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.text = "Gaongil 개발팀"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -81,7 +81,7 @@ class DeveloperPageViewController: UIViewController {
     
     private func configureConstraints() {
         NSLayoutConstraint.activate([
-            largeTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight / 10.64),
+            largeTitleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: screenHeight / 8),
             largeTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: screenWidth / 18.57),
             largeTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 18.57),
             

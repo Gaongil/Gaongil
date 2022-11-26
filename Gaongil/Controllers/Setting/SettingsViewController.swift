@@ -10,6 +10,8 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     var models = [Sections]()
+    var categories = Category.categoryNames
+    let coreDataManager = CoreDataManager.shared
     
     //MARK: Properties
     private var titleLabel: UILabel = {
@@ -38,6 +40,7 @@ class SettingsViewController: UIViewController {
         navigationItem.title = "설정"
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
+        navigationItem.hidesBackButton = true
         SettingsTableViewCellConfigure()
         configureConstraints()
     }
@@ -45,17 +48,38 @@ class SettingsViewController: UIViewController {
     private func SettingsTableViewCellConfigure() {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
-                let SelectCategoryVC = SelectCategoryViewController()
-                self.navigationController?.pushViewController(SelectCategoryVC, animated: true)
+                let selectCategoryVC = SelectCategoryViewController()
+                self.navigationController?.pushViewController(selectCategoryVC, animated: true)
+                selectCategoryVC.navigationItem.backBarButtonItem?.tintColor = .customSelectedGreen
+                selectCategoryVC.floatingButton.isHidden = true
+
+               
+                selectCategoryVC.navigationItem.setRightBarButton(UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.tapDoneButton)), animated: true)
+                selectCategoryVC.navigationController?.navigationBar.tintColor = .customSelectedGreen
+                
             },
             SettingsOption(title: "개발자") {
-                let DeveloperPageVC = DeveloperPageViewController()
-                self.navigationController?.pushViewController(DeveloperPageVC, animated: true)
+                let developerPageVC = DeveloperPageViewController()
+                self.navigationController?.pushViewController(developerPageVC, animated: true)
+                developerPageVC.navigationController?.navigationBar.tintColor = .customSelectedGreen
+                
             },
             SettingsOption(title: "License") {
                 
             },
         ]))
+    }
+    
+    @objc func tapDoneButton() {
+        for data in categories {
+            if data.isCategorySelected == true {
+                coreDataManager.saveCommitteeCoreData(name: data.name, isCategorySelected: data.isCategorySelected) { _ in }
+            }
+        }
+        
+        let newViewController = SettingsViewController()
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        UserDefaults.standard.set(true, forKey: "isRegistered")
     }
     
     private func configureConstraints() {

@@ -30,7 +30,7 @@ class SelectCategoryViewController: UIViewController {
         return label
     }()
     
-    private var floatingButton: UIButton = {
+    public var floatingButton: UIButton = {
         let button = UIButton()
         button.setTitle("시작하기", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24, weight: .bold)

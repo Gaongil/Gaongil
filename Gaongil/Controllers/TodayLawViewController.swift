@@ -36,7 +36,11 @@ class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.navigationItem.title = "오늘의 법안"
+
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.topItem?.title = "오늘의 법안"
+
         [todayLawCollectionView, committeeListView].forEach { view.addSubview($0) }
         
         todayLawCollectionView.dataSource = self
@@ -56,7 +60,10 @@ class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
         
     }
     
-    // MARK: - Lifecycle
+    func viewWillAppear() {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     
     private func configureConstraints() {
         
