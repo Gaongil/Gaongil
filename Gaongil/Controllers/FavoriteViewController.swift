@@ -132,6 +132,7 @@ extension FavoriteViewController: UICollectionViewDataSource, UICollectionViewDe
 
         detailViewController.result = result
         detailViewController.selectedIndex = indexPath.row
+        detailViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
