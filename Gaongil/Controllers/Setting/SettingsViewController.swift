@@ -60,6 +60,7 @@ class SettingsViewController: UIViewController {
             },
             SettingsOption(title: "개발자") {
                 let developerPageVC = DeveloperPageViewController()
+                developerPageVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(developerPageVC, animated: true)
                 developerPageVC.navigationController?.navigationBar.tintColor = .customSelectedGreen
                 
