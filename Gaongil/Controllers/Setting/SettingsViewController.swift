@@ -49,11 +49,11 @@ class SettingsViewController: UIViewController {
         self.models.append(Sections(title: "Settings", options: [
             SettingsOption(title: "관심 분야 변경") {
                 let selectCategoryVC = SelectCategoryViewController()
+                selectCategoryVC.hidesBottomBarWhenPushed = true
                 self.navigationController?.pushViewController(selectCategoryVC, animated: true)
                 selectCategoryVC.navigationItem.backBarButtonItem?.tintColor = .customSelectedGreen
                 selectCategoryVC.floatingButton.isHidden = true
-
-               
+                
                 selectCategoryVC.navigationItem.setRightBarButton(UIBarButtonItem(title: "완료", style: .done, target: self, action: #selector(self.tapDoneButton)), animated: true)
                 selectCategoryVC.navigationController?.navigationBar.tintColor = .customSelectedGreen
                 
