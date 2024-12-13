@@ -43,10 +43,6 @@ class ResponseManager {
                             
                             /// row 데이터들만 모아놓은 프로퍼티
                             let rowBoxes = lists.compactMap { $0.row }
-                            print("rowBoxes[0]: \(rowBoxes[0])")
-                            print("나는 billName: \(rowBoxes[0][0].billName)")
-                            print("나는 billName: \(rowBoxes[0][1].billName)")
-                            print("나는 billName: \(rowBoxes[0][1].currCommittee)")
                             print("row들 개수 :\(rowBoxes[0].count)")
                             
                             rowBoxes.forEach { rows in

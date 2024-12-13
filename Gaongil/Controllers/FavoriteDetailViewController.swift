@@ -138,7 +138,6 @@ class FavoriteDetailViewController: UIViewController {
         
         [lawTitleLabel, cardView, contentTextView].forEach { view.addSubview($0) }
         cardView.addSubview(informationStackView)
-        contentTextView.addSubview(lawUrlButton)
         
         configureConstraints()
         cardView.setShadow(offset: CGSize.init(width: 1, height: 1),
@@ -175,10 +174,7 @@ class FavoriteDetailViewController: UIViewController {
             contentTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -screenWidth / 22.94),
             contentTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
             
-            lawUrlButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lawUrlButton.widthAnchor.constraint(equalToConstant: screenWidth / 1.13),
-            lawUrlButton.heightAnchor.constraint(equalToConstant: screenHeight / 13.19),
-            lawUrlButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
+    
 }

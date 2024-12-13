@@ -143,7 +143,7 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
             cell.categoryLabel.textColor = .customSelectedGreen
             cell.backgroundColor = .customBackgroundGreen
             
-            categories[indexPath.row].isCategorySelected = true
+//            categories[indexPath.row].isCategorySelected = true
             
             print("categories[indexPath.row].isCategorySelected: \(categories[indexPath.row].isCategorySelected)")
         }
@@ -155,7 +155,7 @@ extension SelectCategoryViewController: UICollectionViewDataSource, UICollection
             cell.categoryLabel.textColor = .customBlack
             cell.backgroundColor = .white
             
-            categories[indexPath.row].isCategorySelected = false
+//            categories[indexPath.row].isCategorySelected = false
             
             print("categories[indexPath.row].isCategorySelected: \(categories[indexPath.row].isCategorySelected)")
         }

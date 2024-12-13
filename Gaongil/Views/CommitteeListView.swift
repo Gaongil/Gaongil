@@ -16,15 +16,15 @@ class CommitteeListView: UIView, NSFetchedResultsControllerDelegate {
     var categoryList : [String] = ["전체"]
     weak var delegate: CommitteeListViewDelegate?
     var selectedCommitteeName = ""
-
+    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Committee> = {
         let fetchRequest: NSFetchRequest<Committee> = Committee.fetchRequest()
-
+        
         let sort = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         fetchRequest.fetchBatchSize = 20
-
+        
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: coreDataManager.container!, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
@@ -49,6 +49,8 @@ class CommitteeListView: UIView, NSFetchedResultsControllerDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        categoryList = ["전체"] + Category.categoryNames.map { $0.name }
+        
         self.addSubview(categorycollectionView)
         configureConstraints()
         do {
@@ -57,8 +59,19 @@ class CommitteeListView: UIView, NSFetchedResultsControllerDelegate {
             fetchedResultsController.fetchedObjects?.forEach { item in
                 categoryList.append(item.name!)
             }
-        
+            
             categorycollectionView.reloadData()
+            let initialIndexPath = IndexPath(item: 0, section: 0)
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.categorycollectionView.selectItem(at: initialIndexPath, animated: false, scrollPosition: .init())
+                if let cell = self?.categorycollectionView.cellForItem(at: initialIndexPath) as? CommitteeCustomCell {
+                    cell.backgroundColor = UIColor.customSelectedGreen
+                    cell.categoryLabel.textColor = .white
+                }
+            }
+            
+            
         } catch let error as NSError {
             print("Fetching error: \(error), \(error.userInfo)")
         }
@@ -104,32 +117,43 @@ extension CommitteeListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommitteeCellId", for: indexPath) as! CommitteeCustomCell
-
+        
         cell.backgroundColor = UIColor.customUnselectedGreen
-        if indexPath.item == 0 {
-            cell.configure()
-            /// 다른 Cell 을 눌렀을 떄 "전체" Cell 의 seleted 를 없애기 위한 코드
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-        }
-
+        //        if indexPath.item == 0 {
+        //            cell.configure()
+        //            /// 다른 Cell 을 눌렀을 떄 "전체" Cell 의 seleted 를 없애기 위한 코드
+        //            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+        //        }
+        
         cell.categoryLabel.text = categoryList[indexPath.row]
-
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommitteeCellId", for: indexPath) as! CommitteeCustomCell
+        if let cell = collectionView.cellForItem(at: indexPath) as? CommitteeCustomCell {
+            // 선택된 셀 스타일 변경
+            cell.backgroundColor = UIColor.customSelectedGreen
+            cell.categoryLabel.textColor = .white
+        }
         
         print(categoryList[indexPath.row])
         
         selectedCommitteeName = CommitteeName(rawValue: categoryList[indexPath.row])?.fullName ?? String()
         print(selectedCommitteeName)
         onClickTestButton()
+        
+    }
     
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? CommitteeCustomCell {
+            cell.backgroundColor = UIColor.customUnselectedGreen
+            cell.categoryLabel.textColor = .black
+        }
     }
 }
 
-protocol CommitteeListViewDelegate: class {
+protocol CommitteeListViewDelegate: AnyObject {
     func onClickButton(committeeName: String)
 }

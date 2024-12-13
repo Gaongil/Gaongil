@@ -14,22 +14,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let userDefaultsIsRegistered = UserDefaults.standard.bool(forKey: "isRegistered") as Bool? ?? false
+//        let userDefaultsIsRegistered = UserDefaults.standard.bool(forKey: "isRegistered") as Bool? ?? false
         
-        let selectCategoryViewController = SelectCategoryViewController()
-        let mainTabBarController = MainTabBarController()
-        var rootViewController = UIViewController()
+        let todayLawViewController = TodayLawViewController()
+//        let mainTabBarController = MainTabBarController()
+        let rootViewController = todayLawViewController
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
         
-        if userDefaultsIsRegistered {
-            rootViewController = mainTabBarController
-        } else {
-            rootViewController = selectCategoryViewController
-        }
+//        if userDefaultsIsRegistered {
+//            rootViewController = mainTabBarController
+//        } else {
+//            rootViewController = selectCategoryViewController
+//        }
         
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
     }

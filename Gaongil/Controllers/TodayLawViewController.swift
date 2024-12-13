@@ -107,11 +107,8 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
         
         let results = result[indexPath.row]
         
-//        cell.titleLabel.text = result[indexPath.row].billName
-//        cell.committeeLabel.text = result[indexPath.row].currCommittee
-        
         cell.titleLabel.text = results.billName
-        cell.committeeLabel.text = results.currCommittee
+        cell.committeeLabel.text = (results.proposeDt?.formattedDateString() ?? "") + " " + (results.currCommittee ?? "")
         cell.statusLabel.text = results.procResultCd
         
         if results.procResultCd == "원안가결" {

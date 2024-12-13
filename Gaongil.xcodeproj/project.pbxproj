@@ -34,6 +34,8 @@
 		BF36E2C228FE83C2007B9E15 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2C128FE83C2007B9E15 /* CustomView.swift */; };
 		BF36E2C428FEA28A007B9E15 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36E2C328FEA28A007B9E15 /* Shadow.swift */; };
 		BF6D1A1728FA930000CEE971 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D1A1628FA930000CEE971 /* Colors.swift */; };
+		BF727D5B2D0BE2A10099FF3F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF727D5A2D0BE2990099FF3F /* String.swift */; };
+		BF727D5E2D0BE4550099FF3F /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = BF727D5D2D0BE4550099FF3F /* SwiftSoup */; };
 		BF752F66290143B00083A72C /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF752F65290143B00083A72C /* Variables.swift */; };
 		BF788B89290540DA002BF8C0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BF788B88290540DA002BF8C0 /* Alamofire */; };
 		BF788B8E290545C0002BF8C0 /* ResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF788B8D290545C0002BF8C0 /* ResponseManager.swift */; };
@@ -74,6 +76,7 @@
 		BF36E2C128FE83C2007B9E15 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BF36E2C328FEA28A007B9E15 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		BF6D1A1628FA930000CEE971 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BF727D5A2D0BE2990099FF3F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		BF752F65290143B00083A72C /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
 		BF788B8D290545C0002BF8C0 /* ResponseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseManager.swift; sourceTree = "<group>"; };
 		BF788B8F29055A8C002BF8C0 /* Law.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Law.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			files = (
 				BF915CB6290BFC7A006DD4B1 /* SwiftyJSON in Frameworks */,
 				BF788B89290540DA002BF8C0 /* Alamofire in Frameworks */,
+				BF727D5E2D0BE4550099FF3F /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +155,7 @@
 		BF6D1A1428FA92CF00CEE971 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BF727D5A2D0BE2990099FF3F /* String.swift */,
 				BF6D1A1628FA930000CEE971 /* Colors.swift */,
 				BF36E2C328FEA28A007B9E15 /* Shadow.swift */,
 				BF752F65290143B00083A72C /* Variables.swift */,
@@ -241,6 +246,7 @@
 			packageProductDependencies = (
 				BF788B88290540DA002BF8C0 /* Alamofire */,
 				BF915CB5290BFC7A006DD4B1 /* SwiftyJSON */,
+				BF727D5D2D0BE4550099FF3F /* SwiftSoup */,
 			);
 			productName = Gaongil;
 			productReference = BF7AE40628FA8CA800AF68ED /* Gaongil.app */;
@@ -273,6 +279,7 @@
 			packageReferences = (
 				BF788B87290540DA002BF8C0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BF915CB4290BFC7A006DD4B1 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				BF727D5C2D0BE4550099FF3F /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = BF7AE40728FA8CA800AF68ED /* Products */;
 			projectDirPath = "";
@@ -314,6 +321,7 @@
 				3F4E3CDB2914B0A1005D1293 /* CommitteeListView.swift in Sources */,
 				BF788B8E290545C0002BF8C0 /* ResponseManager.swift in Sources */,
 				3F3C60FF2912A5F7002D1168 /* CoreDataManager.swift in Sources */,
+				BF727D5B2D0BE2A10099FF3F /* String.swift in Sources */,
 				3FEECBFE29030C6E00E5342D /* FavoriteViewController.swift in Sources */,
 				3F3C61052912A7E2002D1168 /* Committee+CoreDataClass.swift in Sources */,
 				59580EF7290379210035A84A /* SettingsTableViewCell.swift in Sources */,
@@ -471,14 +479,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N3H27N59VG;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gaongil/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,14 +510,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N3H27N59VG;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Gaongil/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -550,6 +558,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BF727D5C2D0BE4550099FF3F /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.6;
+			};
+		};
 		BF788B87290540DA002BF8C0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -569,6 +585,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BF727D5D2D0BE4550099FF3F /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF727D5C2D0BE4550099FF3F /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
 		BF788B88290540DA002BF8C0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF788B87290540DA002BF8C0 /* XCRemoteSwiftPackageReference "Alamofire" */;
