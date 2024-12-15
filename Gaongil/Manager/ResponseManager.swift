@@ -44,7 +44,6 @@ class ResponseManager {
                             /// row 데이터들만 모아놓은 프로퍼티
                             let rowBoxes = lists.compactMap { $0.row }
                             print("row들 개수 :\(rowBoxes[0].count)")
-                            
                             rowBoxes.forEach { rows in
                                 self.rows.removeAll()
                                 self.rows.append(rows)

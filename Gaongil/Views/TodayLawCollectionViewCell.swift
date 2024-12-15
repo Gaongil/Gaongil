@@ -17,15 +17,19 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
         view.layer.cornerRadius = view.frame.width / 2
         view.clipsToBounds = true
         view.layer.masksToBounds = true
+
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     public lazy var statusLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16)
         label.textColor = .white
         label.text = "원안가결"
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.minimumScaleFactor = 0.3  // 폰트 최소 스케일 (0.0 ~ 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -62,6 +66,8 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .customBlack
         label.text = "보건복지부"
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -106,6 +112,9 @@ class TodayLawCollectionViewCell: UICollectionViewCell {
             
             statusLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             statusLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            statusLabel.leadingAnchor.constraint(equalTo: circleView.leadingAnchor, constant: 5),
+               statusLabel.trailingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: -5),
+              
             
             circleView.leadingAnchor.constraint(equalTo: self.textCellStackView.trailingAnchor, constant: screenWidth / 70),
             circleView.heightAnchor.constraint(equalToConstant: 70),

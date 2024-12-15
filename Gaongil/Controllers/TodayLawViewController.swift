@@ -8,9 +8,10 @@
 import UIKit
 
 class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
+
+
     
     // MARK: - Properties
-    
     let committeeListView = CommitteeListView()
     var shared = ResponseManager.shared
     var result = [Row]()
@@ -23,7 +24,7 @@ class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TodayLawCollectionViewCell.self, forCellWithReuseIdentifier: TodayLawCollectionViewCell.reuseIdentifier)
-        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = true
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -93,6 +94,13 @@ class TodayLawViewController: UIViewController, CommitteeListViewDelegate {
             }
         }
     }
+    
+    func scrollToTop() {
+        // todayLawCollectionView의 스크롤을 최상단으로 이동
+        DispatchQueue.main.async {
+            self.todayLawCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        }
+    }
 }
 
 extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -106,15 +114,22 @@ extension TodayLawViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.setShadow(offset: CGSize(width: 0.3, height: 0.3), color: .lightGray, radius: 5, opacity: 0.4)
         
         let results = result[indexPath.row]
-        
+        print("results: \(results)")
         cell.titleLabel.text = results.billName
-        cell.committeeLabel.text = (results.proposeDt?.formattedDateString() ?? "") + " " + (results.currCommittee ?? "")
-        cell.statusLabel.text = results.procResultCd
+        cell.committeeLabel.text = (results.proposeDt?.formattedDateString() ?? "") + " " + ((results.currCommittee ?? results.proposer) ?? "")
+        
+        if results.procResultCd == nil {
+            cell.statusLabel.text = "접수"
+        } else {
+            cell.statusLabel.text = results.procResultCd
+        }
         
         if results.procResultCd == "원안가결" {
             cell.circleView.backgroundColor = .customSelectedGreen
         } else if results.procResultCd == "수정가결" {
             cell.circleView.backgroundColor = .systemOrange
+        } else if results.procResultCd == nil {
+            cell.circleView.backgroundColor = .darkGray
         } else {
             cell.circleView.backgroundColor = .systemRed
         }

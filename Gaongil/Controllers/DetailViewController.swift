@@ -152,10 +152,10 @@ class DetailViewController: UIViewController {
                            opacity: 0.2)
         
         lawTitleLabel.text = shared.rows[0][selectedIndex].billName ?? String()
-        instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? String()
-        progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? String()
-        proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? String()
-        suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? String()
+        instituteView.contentLabel.text = shared.rows[0][selectedIndex].currCommittee ?? "-"
+        progressView.contentLabel.text = shared.rows[0][selectedIndex].procResultCd ?? "처리 전"
+        proposerView.contentLabel.text = shared.rows[0][selectedIndex].proposer ?? "-"
+        suggestionDateView.contentLabel.text = shared.rows[0][selectedIndex].proposeDt ?? "-"
         detailLawLink = self.shared.rows[0][selectedIndex].linkUrl
         
         guard let detailLawLink else { return }
@@ -163,11 +163,10 @@ class DetailViewController: UIViewController {
         getWebpage(detailLawLink) { result in
             if let content = result {
                 print("제안이유 및 제안내용을 성공적으로 불러왔습니다.")
-                print(content)
                 self.contentTextView.attributedText = content
             } else {
                 print("제안이유 및 제안내용을 찾을 수 없거나 오류가 발생했습니다.")
-                self.contentTextView.text = "내용을 불러올 수 없습니다."
+                self.contentTextView.text = "내용이 없습니다."
             }
         }
     }
@@ -226,6 +225,7 @@ class DetailViewController: UIViewController {
                     if let content = self.extractContent(from: html) {
                         DispatchQueue.main.async {
                             completion(content) // 추출된 결과 반환
+                            print("content: \(content)")
                         }
                     } else {
                         DispatchQueue.main.async {

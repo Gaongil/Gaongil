@@ -143,7 +143,7 @@ extension CommitteeListView: UICollectionViewDataSource {
         selectedCommitteeName = CommitteeName(rawValue: categoryList[indexPath.row])?.fullName ?? String()
         print(selectedCommitteeName)
         onClickTestButton()
-        
+        delegate?.scrollToTop()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -156,4 +156,5 @@ extension CommitteeListView: UICollectionViewDataSource {
 
 protocol CommitteeListViewDelegate: AnyObject {
     func onClickButton(committeeName: String)
+    func scrollToTop() // 스크롤을 상단으로 이동
 }

@@ -6,7 +6,8 @@ struct LawResponse: Codable {
     var list: [List]?
 
     enum CodingKeys: String, CodingKey {
-        case list = "nxjuyqnxadtotdrbw"
+//        case list = "nxjuyqnxadtotdrbw"
+        case list = "TVBPMBILL11"
     }
 }
 
