@@ -8,8 +8,8 @@
 
 |박준혁|석혜민|오세익|
 |:-:|:-:|:-:|
-|<img src="https://github.com/Genesis2010.png" width="200">|<img src="https://github.com/lenamin.png" width="200">|<img src="https://github.com/glitterer.png" width="200">|
-|[@Genesis2010](https://github.com/Genesis2010)|[@lenamin](https://github.com/lenamin)|[@glitterer](https://github.com/seik-oh)|
+|<img src="https://github.com/Genesis2010.png" width="200">|<img src="https://github.com/lenamin.png" width="200">|<img src="https://github.com/seik-oh.png" width="200">|
+|[@Genesis2010](https://github.com/Genesis2010)|[@lenamin](https://github.com/lenamin)|[@seik-oh](https://github.com/seik-oh)|
 
 
 
